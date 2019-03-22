@@ -127,8 +127,28 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-/*********VARIABLE**************/
+/***************** ROOT AND GLOBAL CODE *******************/
 
+:root {
+  /* Colors */
+  /* --accent-color-bluemarine: #013441;
+  --accent-color-dark-blue: #16263d;
+  --accent-color-oldpink: #b05672;
+  --accent-color-purpel: #894163; */
+  --color-black: #000000;
+  --color-grey: #ebe9e2;
+  --color-wine: #850036;
+  --color-pink: #d97e9b;
+  --color-white: #fff;
+  --color-darkgrey: #747474;
+  /* Typefaces */
+  --display-font: "Poiret One", cursive;
+  --text-font: "Raleway", sans-serif;
+  --font-size-small: 12px;
+  --font-size-title: 30px;
+  --font-size-text1: 16px;
+  --font-size-subtitle: 20px;
+}
 
 /*********LOGOS**************/
 .a,
