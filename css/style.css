@@ -153,6 +153,7 @@ table {
   --font-size-subtitle: 20px;
   --font-size-small: 10px;
   --font-size-subtitle2: 25px;
+  --font-size-subtitle3: 18px;
 }
 body {
   font-family: var(--display-font);
@@ -162,6 +163,8 @@ h2 {
   font-family: var(--display-font);
   font-size: var(--font-size-subtitle2);
   text-align: center;
+}
+.marginbt-h2 {
   margin-bottom: -10px;
 }
 
@@ -172,6 +175,7 @@ h2 {
   background-repeat: no-repeat;
   min-height: 40px;
 }
+
 /***************** GRID *******************/
 .grid-container {
   display: grid;
@@ -239,36 +243,6 @@ header h2 {
   padding: 5px 25px 5px 25px;
   margin: -10px 0 30px 0;
 }
-/* .myName {
-  stroke: #000;
-  stroke-width: 1px;
-  width: 200vw;
-  overflow: hidden;
-  fill: none;
-  top: 15%;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-}
-
-.draw {
-  animation: draw 2s cubic-bezier(0, 0.5, 1, 0.1) forwards;
-}
-
-@keyframes draw {
-  0% {
-    fill: none;
-  }
-  30% {
-    fill: rgba(0, 0, 0, 0);
-  }
-  90% {
-    fill: rgba(0, 0, 0, 0.1);
-  }
-  100% {
-    fill: rgba(0, 0, 0, 1);
-    stroke-dashoffset: 0;
-  }
-} */
 /*********ASIDE**************/
 aside {
   z-index: 3;
@@ -328,6 +302,7 @@ aside i {
 #work {
   grid-area: work;
 }
+/*********PROJECTS FILTERS*************/
 #work #filters {
   display: grid;
   grid-template: 1fr 1fr/ 1fr 1fr 1fr;
@@ -341,13 +316,16 @@ aside i {
   font-family: var(--display-font);
   font-size: var(--font-size-text1);
 }
+
+/*********PROJECTS YEAR**************/
 #work .year-dot {
   display: flex;
   justify-content: flex-end;
-  width: 50%;
+  width: 130px;
 }
 #work .year-dot h3 {
   font-size: var(--font-size-text1);
+  padding-right: 10px;
 }
 #work .year-dot span {
   height: 20px;
@@ -356,8 +334,58 @@ aside i {
   background-color: var(--color-greylight);
   border-radius: 50%;
 }
-.vl{
-  border-left: 
+.vl {
+  border-left: solid 1px var(--color-darkgrey);
+  position: absolute;
+  left: 120px;
+  height: 100%;
+  z-index: -2;
+}
+
+/*********EACH PROJECT**************/
+.project-box {
+  display: grid;
+  grid-template: 1fr/ 50px 2fr;
+}
+.project-img {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  width: 100px;
+}
+.project-info {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  z-index: -1;
+  background-color: var(--color-grey);
+  padding: 0 20px 0 70px;
+}
+.project-info h2 {
+  text-align: left;
+  margin-bottom: 7px;
+  font-size: var(--font-size-subtitle3);
+  margin-top: 30px;
+}
+.project-info p {
+  font-size: var(--font-size-text2);
+}
+/*********PROJECT INFO ANIMATION**************/
+[data-anime="hide"] {
+  opacity: 0;
+}
+
+/*********PROJECTS 2018 LIT GRID**************/
+#p2018 {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 85px;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+.project-box:nth-child(odd) {
+  padding-left: 50px;
+}
+.project-box:nth-child(even) {
+  padding-left: 0px;
 }
 /*********ABOUT**************/
 #about {
