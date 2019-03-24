@@ -218,7 +218,11 @@
       <h2 class="marginbt-h2">My Story</h2>
       <div class="lines"></div>
       <section class="about-menu">
-        <img src="images/juliana-photo.png" alt="photo-juliana" />
+        <img
+          class="photo-ju"
+          src="images/juliana-photo.png"
+          alt="photo-juliana"
+        />
         <div class="about-btn">
           <div class="vl2"></div>
           <button><i class="fas fa-user"></i></button>
@@ -228,7 +232,7 @@
           <button><i class="fas fa-puzzle-piece"></i></button>
         </div>
         <div class="detail-about">
-          <article id="about-article">
+          <article id="about-article" class="hide">
             <h2>about</h2>
             <div class="values">
               <h3>values</h3>
@@ -300,16 +304,20 @@
               </p>
             </div>
           </article>
-          <article class="hide">
+          <article id="education-article" class="hide">
             <h2>education</h2>
             <section>
-              <img src="" alt="kea" />
+              <img
+                class="logo-school"
+                src="images/kea-logo-danish.png"
+                alt="kea"
+              />
               <div>
-                <p>2018 - 2020</p>
-                <p>KEA - Københavns Erhvervsakademi</p>
+                <p class="schoolYear">2018 - 2020</p>
+                <p class="school">KEA - Københavns Erhvervsakademi</p>
               </div>
               <h3>Academic Degree Multimedia Design and Comunication</h3>
-              <div>
+              <div class="schoolSkills">
                 <p>
                   Software : HTML, CSS, JavaScript, JSON, Sass, NPM, Terminal,
                   Photoshop, Illustrator, InDesign and Premiere.
@@ -322,13 +330,17 @@
               </div>
             </section>
             <section>
-              <img src="" alt="iscte" />
+              <img
+                class="logo-school"
+                src="images/logo_ISCTE-IUL.png"
+                alt="iscte"
+              />
               <div>
-                <p>2007 - 2012</p>
-                <p>ISCTE - Instituto Universitário de Lisboa</p>
+                <p class="schoolYear">2007 - 2012</p>
+                <p class="school">ISCTE - Instituto Universitário de Lisboa</p>
               </div>
               <h3>Master's degree Architecture</h3>
-              <div>
+              <div class="schoolSkills">
                 <p>
                   Software : Autocad, Revit, Photoshop and 3D Studio Max.
                 </p>
@@ -339,28 +351,36 @@
               </div>
             </section>
           </article>
-          <article class="hide">
+          <article id="experience-article" class="">
             <h2>experience</h2>
             <section>
               <div>
-                <img src="" alt="core logo" />
-                <h3>CORE Arkitekter</h3>
+                <img
+                  id="core"
+                  src="images/core_logo_452x120.png"
+                  alt="core logo"
+                />
+                <h3 class="exp-name">CORE Arkitekter</h3>
               </div>
               <p>2014 - 2015</p>
               <h3>Architect Intern + Junior Architect</h3>
-              <p>
+              <p class="projects-exp">
                 Research of the Malmö Kockums Shipyards | Politiken Offices |
                 Recycling Station
               </p>
             </section>
             <section>
               <div>
-                <img src="" alt="primus logo" />
-                <h3>Primus Architects</h3>
+                <img
+                  id="primus"
+                  src="images/logo-nyt-68x182.png"
+                  alt="primus logo"
+                />
+                <h3 class="exp-name">Primus Architects</h3>
               </div>
               <p>2013 - 2014</p>
               <h3>Architectural Intern</h3>
-              <p>
+              <p class="projects-exp">
                 Competition of Hans Christian Anderson - House of Fairytales |
                 Community Building in Mimerparken | Landscape Redesign of
                 Enghave Parken

@@ -39,9 +39,10 @@ function displayP2018(project) {
   function animateScroll() {
     const windowTop = window.pageYOffset + (window.innerHeight * 3) / 4;
     if (windowTop > target.offsetTop) {
-      console.log("working");
+      console.log("in");
       target.classList.add("animate");
     } else {
+      console.log("out");
       target.classList.remove("animate");
     }
   }
