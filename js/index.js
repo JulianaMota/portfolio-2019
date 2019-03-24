@@ -1,9 +1,93 @@
 "use strict";
+// btn about
+const aboutBtn = document.querySelector("[data-action=about]");
+const currentBtnColor = "#c7c7c7";
+const normalBtnColor = "#fff";
+const eduBtn = document.querySelector("[data-action=edu]");
+const expBtn = document.querySelector("[data-action=exp]");
+const sofBtn = document.querySelector("[data-action=sof]");
+const hobBtn = document.querySelector("[data-action=hob]");
+
+// content about
+const aboutArticle = document.querySelector("#about-article");
+const eduArticle = document.querySelector("#education-article");
+const expArticle = document.querySelector("#experience-article");
+const sofArticle = document.querySelector("#software-article");
+const hobArticle = document.querySelector("#hobbies-article");
+console.log(aboutArticle, eduArticle, expArticle, sofArticle, hobArticle);
 
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
+  //console.log(aboutBtn, eduBtn, expBtn, sofBtn, hobBtn);
+  aboutBtn.style.backgroundColor = currentBtnColor;
+  aboutBtn.addEventListener("click", aboutClicked);
+  eduBtn.addEventListener("click", eduClicked);
+  expBtn.addEventListener("click", expClicked);
+  sofBtn.addEventListener("click", sofClicked);
+  hobBtn.addEventListener("click", hobClicked);
   get();
+}
+
+function aboutClicked() {
+  eduArticle.classList.add("hide");
+  aboutArticle.classList.remove("hide");
+  expArticle.classList.add("hide");
+  hobArticle.classList.add("hide");
+  sofArticle.classList.add("hide");
+  aboutBtn.style.backgroundColor = currentBtnColor;
+  eduBtn.style.backgroundColor = normalBtnColor;
+  expBtn.style.backgroundColor = normalBtnColor;
+  sofBtn.style.backgroundColor = normalBtnColor;
+  hobBtn.style.backgroundColor = normalBtnColor;
+}
+function eduClicked() {
+  eduArticle.classList.remove("hide");
+  aboutArticle.classList.add("hide");
+  expArticle.classList.add("hide");
+  hobArticle.classList.add("hide");
+  sofArticle.classList.add("hide");
+  eduBtn.style.backgroundColor = currentBtnColor;
+  aboutBtn.style.backgroundColor = normalBtnColor;
+  expBtn.style.backgroundColor = normalBtnColor;
+  sofBtn.style.backgroundColor = normalBtnColor;
+  hobBtn.style.backgroundColor = normalBtnColor;
+}
+function expClicked() {
+  eduArticle.classList.add("hide");
+  aboutArticle.classList.add("hide");
+  expArticle.classList.remove("hide");
+  hobArticle.classList.add("hide");
+  sofArticle.classList.add("hide");
+  aboutBtn.style.backgroundColor = normalBtnColor;
+  eduBtn.style.backgroundColor = normalBtnColor;
+  expBtn.style.backgroundColor = currentBtnColor;
+  sofBtn.style.backgroundColor = normalBtnColor;
+  hobBtn.style.backgroundColor = normalBtnColor;
+}
+function sofClicked() {
+  eduArticle.classList.add("hide");
+  aboutArticle.classList.add("hide");
+  expArticle.classList.add("hide");
+  hobArticle.classList.add("hide");
+  sofArticle.classList.remove("hide");
+  aboutBtn.style.backgroundColor = normalBtnColor;
+  eduBtn.style.backgroundColor = normalBtnColor;
+  expBtn.style.backgroundColor = normalBtnColor;
+  sofBtn.style.backgroundColor = currentBtnColor;
+  hobBtn.style.backgroundColor = normalBtnColor;
+}
+function hobClicked() {
+  eduArticle.classList.add("hide");
+  aboutArticle.classList.add("hide");
+  expArticle.classList.add("hide");
+  hobArticle.classList.remove("hide");
+  sofArticle.classList.add("hide");
+  aboutBtn.style.backgroundColor = normalBtnColor;
+  eduBtn.style.backgroundColor = normalBtnColor;
+  expBtn.style.backgroundColor = normalBtnColor;
+  sofBtn.style.backgroundColor = normalBtnColor;
+  hobBtn.style.backgroundColor = currentBtnColor;
 }
 
 function get() {

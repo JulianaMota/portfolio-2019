@@ -225,14 +225,16 @@
         />
         <div class="about-btn">
           <div class="vl2"></div>
-          <button><i class="fas fa-user"></i></button>
-          <button><i class="fas fa-graduation-cap"></i></button>
-          <button><i class="fas fa-suitcase"></i></button>
-          <button><i class="fas fa-tools"></i></button>
-          <button><i class="fas fa-puzzle-piece"></i></button>
+          <button data-action="about"><i class="fas fa-user"></i></button>
+          <button data-action="edu">
+            <i class="fas fa-graduation-cap"></i>
+          </button>
+          <button data-action="exp"><i class="fas fa-suitcase"></i></button>
+          <button data-action="sof"><i class="fas fa-tools"></i></button>
+          <button data-action="hob"><i class="fas fa-puzzle-piece"></i></button>
         </div>
         <div class="detail-about">
-          <article id="about-article" class="hide">
+          <article id="about-article" class="">
             <h2>about</h2>
             <div class="values">
               <h3>values</h3>
@@ -351,7 +353,7 @@
               </div>
             </section>
           </article>
-          <article id="experience-article" class="">
+          <article id="experience-article" class="hide">
             <h2>experience</h2>
             <section>
               <div>
@@ -387,88 +389,100 @@
               </p>
             </section>
           </article>
-          <article class="hide">
+          <article id="software-article" class="hide">
             <h2>software</h2>
             <section>
               <div>
-                <img src="" alt="HTML5" />
+                <i class="fab fa-html5"></i>
                 <p>HTML5</p>
               </div>
               <div>
-                <img src="" alt="CSS3" />
+                <i class="fab fa-css3-alt"></i>
                 <p>CSS3</p>
               </div>
               <div>
-                <img src="" alt="JavaScript" />
+                <i class="fab fa-js-square"></i>
                 <p>JavaScript</p>
               </div>
               <div>
-                <img src="" alt="Git" />
+                <i class="fab fa-git-square"></i>
                 <p>Git</p>
               </div>
               <div>
-                <img src="" alt="Github" />
+                <i class="fab fa-github-square"></i>
                 <p>Github</p>
               </div>
               <div>
-                <img src="" alt="Wordpress" />
+                <i class="fab fa-wordpress-simple"></i>
                 <p>Wordpress</p>
               </div>
               <div>
-                <img src="" alt="Photoshop" />
+                <img src="images/photoshop.png" alt="Photoshop" />
                 <p>Photoshop</p>
               </div>
               <div>
-                <img src="" alt="Illustrator" />
+                <img src="images/illustrator.png" alt="Illustrator" />
                 <p>Illustrator</p>
               </div>
               <div>
-                <img src="" alt="InDesign" />
+                <img src="images/indesign.png" alt="InDesign" />
                 <p>InDesign</p>
               </div>
               <div>
-                <img src="" alt="Premiere" />
+                <img src="images/premier.png" alt="Premiere" />
                 <p>Premiere</p>
               </div>
               <div>
-                <img src="" alt="adobe XD" />
+                <img src="images/experience.png" alt="adobe XD" />
                 <p>adobe XD</p>
               </div>
               <div>
-                <img src="" alt="SketchUp" />
+                <img src="images/Sketchup.png" alt="SketchUp" />
                 <p>SketchUp</p>
               </div>
               <div>
-                <img src="" alt="AutoCAD" />
+                <img src="images/AutoCAD_2018_icon.png" alt="AutoCAD" />
                 <p>AutoCAD</p>
               </div>
               <div>
-                <img src="" alt="Revit" />
+                <img src="images/revit-logo-png.png" alt="Revit" />
                 <p>Revit</p>
               </div>
               <div>
-                <img src="" alt="Sass" />
+                <img src="images/seal-color-aef0354c.png" alt="Sass" />
                 <p>Sass</p>
               </div>
             </section>
           </article>
-          <article class="hide">
+          <article id="hobbies-article" class="hide">
             <h2>hobbies</h2>
             <section>
               <div>
-                <img src="" alt="cooking" />
+                <img
+                  src="images/interrests-for-about-04_300x298.png"
+                  alt="cooking"
+                />
                 <p>cooking</p>
               </div>
               <div>
-                <img src="" alt="drawing | painting" />
+                <img
+                  src="images/interrests-for-about-01_300x298.png"
+                  alt="drawing | painting"
+                />
                 <p>drawing | painting</p>
               </div>
               <div>
-                <img src="" alt="movies | series" />
+                <img
+                  src="images/interrests-for-about-02_300x298.png"
+                  alt="movies | series"
+                />
                 <p>movies | series</p>
               </div>
               <div>
-                <img src="" alt="travel" />
+                <img
+                  src="images/interrests-for-about-03_300x298.png"
+                  alt="travel"
+                />
                 <p>travel</p>
               </div>
             </section>
@@ -480,23 +494,38 @@
       <h2 class="marginbt-h2">My Contact</h2>
       <div class="lines"></div>
       <div>
-        <h3></h3>
-        <img src="" alt="" />
-        <p></p>
-        <p></p>
+        <h3>webdesign | architeture</h3>
+        <img src="images/logo-juliana-portfolio3.png" alt="logo-jmo" />
+        <p>juliana mota</p>
+        <a href="julianamota89@gmail.com" target="_top"
+          >julianamota89@gmail.com</a
+        >
       </div>
-      <form>
+      <form
+        action="mailto:julianamota89@gmail.com"
+        method="post"
+        enctype="text/plain"
+      >
         <h3>Send a Message</h3>
-        <div>
-          <label for="name">Name</label>
-          <input type="text" id="name" placeholder="text" />
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" placeholder="text" />
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="x@x.x" />
+        <div class="info">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="text" />
+          </div>
+          <div>
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="text" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="x@x.x" />
+          </div>
         </div>
         <textarea name="comment">Enter Message here...</textarea>
-        <input type="submit" value="send" />
+        <div id="send">
+          <input type="submit" value="send" id="submit" />
+          <label for="submit"><i class="fas fa-chevron-down"></i></label>
+        </div>
       </form>
     </section>
     <footer>
