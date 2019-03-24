@@ -132,6 +132,7 @@ table {
   box-sizing: border-box;
 }
 :root {
+  scroll-behavior: smooth;
   /* Colors */
   /* --accent-color-bluemarine: #013441;
   --accent-color-dark-blue: #16263d;
@@ -147,25 +148,29 @@ table {
   /* Typefaces */
   --display-font: "Poiret One", cursive;
   --text-font: "Raleway", sans-serif;
-  --font-size-text2: 12px;
-  --font-size-title: 30px;
+  --font-size-text12: 12px;
+  --font-size-title30: 30px;
   --font-size-text1: 16px;
   --font-size-subtitle: 20px;
-  --font-size-small: 10px;
-  --font-size-subtitle2: 25px;
-  --font-size-subtitle3: 18px;
+  --font-size-small10: 10px;
+  --font-size-subtitle25: 25px;
+  --font-size-subtitle18: 18px;
 }
 body {
   font-family: var(--display-font);
   width: 100%;
 }
+.hide {
+  display: none;
+}
 h2 {
   font-family: var(--display-font);
-  font-size: var(--font-size-subtitle2);
+  font-size: var(--font-size-subtitle25);
   text-align: center;
 }
 .marginbt-h2 {
   margin-bottom: -10px;
+  margin-top: 20px;
 }
 
 .lines {
@@ -214,7 +219,7 @@ header h1 {
 header h2 {
   grid-column: 1/2;
   font-family: var(--display-font);
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-small10);
   text-align: center;
 }
 .header-back {
@@ -262,6 +267,7 @@ aside i {
 }
 /*********NAV**************/
 #menu {
+  z-index: 10;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -334,6 +340,9 @@ aside i {
   background-color: var(--color-greylight);
   border-radius: 50%;
 }
+.projects {
+  position: relative;
+}
 .vl {
   border-left: solid 1px var(--color-darkgrey);
   position: absolute;
@@ -362,15 +371,22 @@ aside i {
 .project-info h2 {
   text-align: left;
   margin-bottom: 7px;
-  font-size: var(--font-size-subtitle3);
-  margin-top: 30px;
+  font-size: var(--font-size-subtitle18);
+  margin-top: 20px;
 }
 .project-info p {
-  font-size: var(--font-size-text2);
+  font-size: var(--font-size-small10);
 }
 /*********PROJECT INFO ANIMATION**************/
-[data-anime="hide"] {
+[data-anime] {
   opacity: 0;
+  transition: 1s;
+  transform: translate3d(-50px, 0, 0);
+}
+
+[data-anime].animate {
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px);
 }
 
 /*********PROJECTS 2018 LIT GRID**************/
@@ -391,7 +407,95 @@ aside i {
 #about {
   grid-area: about;
 }
+#about .about-menu {
+  display: grid;
+  grid-template: auto 1fr/ 50px 1fr;
+  padding-left: 20px;
+  margin-top: 30px;
+}
+#about .about-menu img {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  width: 100px;
+}
+#about .about-menu .about-btn {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  display: grid;
+  grid-template: auto/1fr;
+  padding-left: 50px;
+  justify-content: space-around;
+  grid-row-gap: 30px;
+  padding-top: 30px;
+  position: relative;
+  height: 300px;
+}
+#about .about-menu .about-btn button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: solid 1px var(--color-darkgrey);
+  background-color: var(--color-white);
+  text-align: center;
+  box-shadow: 2px 2px 8px 1px var(--color-darkgrey);
+}
+.vl2 {
+  border-left: solid 1px var(--color-darkgrey);
+  position: absolute;
+  left: 50px;
+  height: 100%;
+  z-index: -2;
+}
+/************ABOUT DETAIL *********/
+#about .about-menu .detail-about {
+  z-index: -3;
+  grid-column: 2/3;
+  grid-row: 1/3;
+  background-color: var(--color-grey);
+  padding: 0 20px 0 70px;
+  display: grid;
+  grid-template: 1fr/ 1fr;
+}
+#about .about-menu .detail-about article {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  padding-right: 20px;
+  padding-top: 30px;
+}
 
+/************ARTICLE about*********/
+#about-article {
+  display: grid;
+  grid-template: auto auto auto auto/ 1fr;
+  grid-row-gap: 10px;
+}
+#about-article h2 {
+  grid-row: 1/2;
+  text-align: left;
+  font-size: var(--font-size-subtitle25);
+}
+
+#about-article .values {
+  grid-row: 3/4;
+}
+#about-article .personality {
+  grid-row: 4/5;
+}
+#about-article .text-about {
+  grid-row: 2/3;
+  font-family: var(--text-font);
+  color: var(--color-darkgrey);
+  font-size: var(--font-size-text12);
+  line-height: 5vw;
+  font-weight: 100;
+  text-align: left;
+}
+#about-article .text-about p {
+  padding-top: 10px;
+}
+#about-article div ul li .icon-about {
+  width: 16px;
+}
 /*********ABOUT**************/
 #contact {
   grid-area: contacts;
@@ -399,8 +503,7 @@ aside i {
 
 /*********ABOUT**************/
 footer {
-  grid-column: 1/2;
-  grid-row: -2/-1;
+  grid-area: nav;
   display: none;
 }
 /*********LOGOS**************/

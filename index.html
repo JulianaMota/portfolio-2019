@@ -135,17 +135,17 @@
 
       <template>
         <article class="project-box">
-          <div data-anime="hide" class="project-info">
+          <div class="project-info" data-anime="hide">
             <h2>title</h2>
             <p class="place">place</p>
             <p class="role">role</p>
           </div>
-          <a href="">
+          <a class="projectlink" href="">
             <img class="project-img" src="" alt="Project" />
           </a>
         </article>
       </template>
-      <section>
+      <section class="projects">
         <div class="vl"></div>
         <div class="year-dot">
           <h3>2018</h3>
@@ -215,37 +215,74 @@
       </section>
     </section>
     <section id="about">
-      <h2>My Story</h2>
+      <h2 class="marginbt-h2">My Story</h2>
       <div class="lines"></div>
-      <section>
-        <img src="" alt="" />
-        <div>
-          <button></button>
-          <button></button>
-          <button></button>
-          <button></button>
-          <button></button>
+      <section class="about-menu">
+        <img src="images/juliana-photo.png" alt="photo-juliana" />
+        <div class="about-btn">
+          <div class="vl2"></div>
+          <button><i class="fas fa-user"></i></button>
+          <button><i class="fas fa-graduation-cap"></i></button>
+          <button><i class="fas fa-suitcase"></i></button>
+          <button><i class="fas fa-tools"></i></button>
+          <button><i class="fas fa-puzzle-piece"></i></button>
         </div>
-        <div>
-          <article>
-            <h2 class="marginbt-h2">about</h2>
-            <div>
+        <div class="detail-about">
+          <article id="about-article">
+            <h2>about</h2>
+            <div class="values">
               <h3>values</h3>
               <ul>
-                <li><img src="" alt="Optimist" />Optimist</li>
-                <li><img src="" alt="Honesty" />Honesty</li>
-                <li><img src="" alt="Determination" />Determination</li>
+                <li>
+                  <img
+                    class="icon-about"
+                    src="images/smile-beam-regular.png"
+                    alt="Optimist"
+                  />Optimist
+                </li>
+                <li>
+                  <img
+                    class="icon-about"
+                    src="images/hand-holding-heart.png"
+                    alt="Honesty"
+                  />Honesty
+                </li>
+                <li>
+                  <img
+                    class="icon-about"
+                    src="images/fist-raised.png"
+                    alt="Determination"
+                  />Determination
+                </li>
               </ul>
             </div>
-            <div>
+            <div class="personality">
               <h3>personality</h3>
               <ul>
-                <li><img src="" alt="Creative" />Creative</li>
-                <li><img src="" alt="Dreamer" />Dreamer</li>
-                <li><img src="" alt="Prefectionist" />Prefectionist</li>
+                <li>
+                  <img
+                    class="icon-about"
+                    src="images/paint-brush.png"
+                    alt="Creative"
+                  />Creative
+                </li>
+                <li>
+                  <img
+                    class="icon-about"
+                    src="images/dream.png"
+                    alt="Dreamer"
+                  />Dreamer
+                </li>
+                <li>
+                  <img
+                    class="icon-about"
+                    src="images/drafting-compass.png"
+                    alt="Prefectionist"
+                  />Prefectionist
+                </li>
               </ul>
             </div>
-            <div>
+            <div class="text-about">
               <p>
                 My name is Juliana Mota, I'm a Multimedia Designer student at
                 Copenhagen School of Design and Technology (KEA) and I also have
@@ -263,7 +300,7 @@
               </p>
             </div>
           </article>
-          <article>
+          <article class="hide">
             <h2>education</h2>
             <section>
               <img src="" alt="kea" />
@@ -302,7 +339,7 @@
               </div>
             </section>
           </article>
-          <article>
+          <article class="hide">
             <h2>experience</h2>
             <section>
               <div>
@@ -330,7 +367,7 @@
               </p>
             </section>
           </article>
-          <article>
+          <article class="hide">
             <h2>software</h2>
             <section>
               <div>
@@ -395,7 +432,7 @@
               </div>
             </section>
           </article>
-          <article>
+          <article class="hide">
             <h2>hobbies</h2>
             <section>
               <div>

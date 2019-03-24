@@ -30,6 +30,22 @@ function displayP2018(project) {
     "https://restju-f026.restdb.io/media/" +
     project.image +
     "?key=5c9667bddf5d634f46ecae24";
+
+  const target = copy.querySelector("[data-anime]");
+  console.log(target);
+  window.addEventListener("scroll", () => {
+    animateScroll();
+  });
+  function animateScroll() {
+    const windowTop = window.pageYOffset + (window.innerHeight * 3) / 4;
+    if (windowTop > target.offsetTop) {
+      console.log("working");
+      target.classList.add("animate");
+    } else {
+      target.classList.remove("animate");
+    }
+  }
+
   copy.querySelector("h2").textContent = project.title;
   copy.querySelector(".place").textContent = project.place;
   const role = copy.querySelector(".role");
@@ -46,3 +62,10 @@ function displayP2018(project) {
 
   document.querySelector("#p2018").appendChild(copy);
 }
+
+// const projectlink = document.querySelectorAll(".projectlink");
+// console.log(projectlink);
+// projectlink.addEventListener("mouseover", () => {
+//   console.log(e);
+//   //   document.querySelector("[data-anime=hide]").classList.add("animate");
+// });
