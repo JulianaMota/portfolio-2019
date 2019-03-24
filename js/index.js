@@ -136,10 +136,10 @@ function displayP2018(project) {
   const role = copy.querySelector(".role");
   window.addEventListener("resize", function() {
     if (window.matchMedia("(max-width: 700px)").matches) {
-      //   console.log("less");
+      console.log("less");
       role.style.display = "none";
     } else {
-      //   console.log("more");
+      console.log("more");
       role.style.display = "block";
       role.textContent = project.role;
     }

@@ -257,7 +257,7 @@ aside {
 }
 aside i {
   color: var(--color-darkgrey);
-  width: 20px;
+  font-size: 16px;
   height: 20px;
   padding: 5px;
 }
@@ -289,6 +289,7 @@ aside i {
   align-items: center;
   justify-content: center;
   padding-top: 20px;
+  text-decoration: none;
 }
 #menu nav a svg {
   width: 20px;
@@ -716,7 +717,7 @@ footer {
   grid-area: nav;
   display: none;
 }
-/*********LOGOS**************/
+/*********LOGOS NAV**************/
 .a,
 .b,
 .e {
@@ -735,6 +736,25 @@ footer {
 
 /*********DESKTOP STYLE**************/
 @media only screen and (min-width: 768px) {
+  /*********GLOBAL SELECTORS**************/
+  h2 {
+    font-size: var(--font-size-title30);
+    text-align: center;
+  }
+  .marginbt-h2 {
+    margin-bottom: -8%;
+    margin-top: 70px;
+  }
+
+  .lines {
+    z-index: 2;
+    background-image: url(../images/desktop-lines.png);
+    background-size: 95%;
+    background-repeat: no-repeat;
+    min-height: 200px;
+  }
+
+  /*******GRID BODY***************/
   .grid-container {
     display: grid;
     grid-template-areas:
@@ -746,43 +766,264 @@ footer {
       "footer footer footer";
     grid-template-columns: auto 1fr 10%;
   }
+
+  /*********HEADER**************/
+  header svg {
+    width: 80px;
+  }
+  header h1 {
+    font-size: var(--font-size-title30);
+  }
+  header h2 {
+    font-size: var(--font-size-text1);
+  }
+  .header-back {
+    display: none;
+    grid-area: nav;
+  }
+
   /*********NAV**************/
   #menu {
+    grid-area: nav;
     z-index: 10;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: grid;
-    grid-template: 1fr / 1fr;
+    position: static;
+    display: flex;
+    justify-content: flex-end;
   }
   #menu #back-nav {
-    z-index: 1;
-    grid-column: 1/2;
-    grid-row: 1/2;
-    width: 100%;
+    display: none;
   }
   #menu nav {
-    display: grid;
-    grid-template: 1fr / repeat(4, auto);
-    grid-column: 1/2;
-    grid-row: 1/2;
-    z-index: 2;
+    grid-gap: 40px;
   }
   #menu nav a {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 20px;
+    flex-direction: row;
+    padding-top: 0px;
   }
   #menu nav a svg {
     width: 20px;
   }
   #menu nav a span {
-    color: var(--color-white);
-    font-family: var(--display-font);
-    font-size: var(--font-size-text1);
+    color: var(--color-greylight);
+    font-size: var(--font-size-subtitle18);
     font-weight: 600;
-    padding-top: 5px;
+    padding-top: 0px;
+    padding-left: 5px;
+  }
+  /*********LOGOS NAV**************/
+  .a,
+  .b,
+  .e {
+    fill: var(--color-greylight);
+  }
+  .b,
+  .c,
+  .e {
+    stroke: var(--color-greylight);
+    stroke-miterlimit: 10;
+    stroke-width: 4px;
+  }
+  .c {
+    fill: none;
+  }
+
+  /*********ASIDE**************/
+  aside {
+    z-index: 3;
+    margin-top: 10px;
+    left: 95%;
+  }
+  aside i {
+    color: var(--color-darkgrey);
+    font-size: 16px;
+    padding: 7px;
+  }
+
+  /*********HOME**************/
+  .parallax {
+    background-size: 90%;
+  }
+  #home h2 {
+    text-align: center;
+    font-family: var(--display-font);
+    font-size: var(--font-size-title30);
+    background-color: var(--color-white);
+    padding: 10px 25px 5px 25px;
+    margin: 10px 0 30px 0;
+  }
+
+  /*********PROJECTS FILTERS*************/
+  #work #filters {
+    display: grid;
+    grid-template: 1fr/ 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 50px;
+    margin: 30px 0 40px 0;
+    padding: 0 25px 0 25px;
+  }
+  #work #filters button {
+    border: none;
+    background-color: transparent;
+    font-family: var(--display-font);
+    font-size: var(--font-size-subtitle);
+    cursor: pointer;
+  }
+  #work #filters button:hover {
+    border-bottom: solid 2px var(--color-greylight);
+    border-radius: 20% 20%;
+    width: 100%;
+  }
+
+  /*********PROJECTS YEAR**************/
+  #work .year-dot {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+  }
+  #work .year-dot h3 {
+    font-size: var(--font-size-subtitle25);
+    padding-right: 10px;
+    align-self: center;
+  }
+  #work .year-dot span {
+    height: 30px;
+    width: 30px;
+  }
+  .projects {
+    position: relative;
+  }
+  .vl {
+    left: calc(50% - 1%);
+  }
+
+  /*********EACH PROJECT**************/
+  .project-box {
+    display: grid;
+    grid-template: 1fr/ 72px 2fr;
+  }
+  .project-img {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 150px;
+  }
+  .project-info {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding: 0 20px 0 100px;
+  }
+  .project-info h2 {
+    text-align: left;
+    margin-bottom: 7px;
+    font-size: var(--font-size-subtitle);
+    margin-top: 40px;
+    font-weight: 600;
+  }
+  .project-info p {
+    font-size: var(--font-size-text1);
+  }
+
+  /*********PROJECTS 2018 LIT GRID**************/
+  #p2018 {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 130px;
+    padding-left: calc(38% - 2px);
+    margin-top: 20px;
+  }
+  .project-box:nth-child(odd) {
+    padding-left: 75px;
+  }
+  .project-box:nth-child(even) {
+    padding-left: 0px;
+  }
+
+  /*********ABOUT**************/
+  #about .about-menu {
+    display: grid;
+    grid-template: auto 1fr/ 73px 1fr;
+    padding-left: 60px;
+    margin-top: 30px;
+  }
+  #about .about-menu .photo-ju {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 150px;
+  }
+  #about .about-menu .about-btn {
+    padding-left: 70px;
+    grid-row-gap: 10px;
+    padding-top: 10px;
+    position: relative;
+    height: 200px;
+  }
+  #about .about-menu .about-btn button {
+    width: 30px;
+    height: 30px;
+    outline: none;
+  }
+  #about .about-menu .about-btn button:hover {
+    transform: scale(1.2);
+  }
+  .vl2 {
+    left: 73px;
+    height: 100%;
+    z-index: -2;
+  }
+  /************ABOUT DETAIL *********/
+  #about .about-menu .detail-about {
+    min-height: 500px;
+    padding: 0 90px 0 100px;
+  }
+  #about .about-menu .detail-about article {
+    padding-top: 40px;
+  }
+  #about article h2 {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    text-align: right;
+    font-size: var(--font-size-title30);
+    align-self: center;
+  }
+  /************ARTICLE about*********/
+  #about-article {
+    display: grid;
+    grid-template: auto auto/ 1fr 1fr 2fr;
+    grid-row-gap: 10px;
+  }
+
+  #about-article .values {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    padding: 0px 0 5px 0;
+    justify-self: center;
+  }
+  #about-article h3 {
+    font-size: var(--font-size-subtitle);
+    padding-bottom: 20px;
+  }
+  #about-article ul {
+    display: grid;
+    grid-row-gap: 20px;
+    padding-left: 40px;
+  }
+  #about-article .personality {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    padding: 0px 0 20px 0;
+    justify-self: center;
+  }
+  #about-article .text-about {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    font-family: var(--text-font);
+    font-size: var(--font-size-text1);
+    line-height: 150%;
+  }
+  #about-article .text-about p {
+    padding-top: 0px;
+  }
+  #about-article div ul li .icon-about {
+    width: 30px;
+    padding-right: 10px;
   }
 }
