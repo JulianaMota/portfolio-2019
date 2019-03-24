@@ -131,6 +131,7 @@ function displayP2018(project) {
     }
   }
 
+  copy.querySelector(".projectlink").href = project.link;
   copy.querySelector("h2").textContent = project.title;
   copy.querySelector(".place").textContent = project.place;
   const role = copy.querySelector(".role");
