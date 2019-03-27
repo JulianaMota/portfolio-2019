@@ -151,67 +151,67 @@
           <h3>2018</h3>
           <span></span>
         </div>
-        <section id="p2018"></section>
+        <section id="p2018" class="project-grid"></section>
 
         <div class="year-dot">
           <h3>2017</h3>
           <span></span>
         </div>
-        <section id="2017"></section>
+        <section id="p2017" class="project-grid"></section>
 
         <div class="year-dot">
           <h3>2016</h3>
           <span></span>
         </div>
-        <section id="2016"></section>
+        <section id="p2016" class="project-grid"></section>
 
         <div class="year-dot">
           <h3>2015</h3>
           <span></span>
         </div>
-        <section id="2015"></section>
+        <section id="p2015" class="project-grid"></section>
 
         <div class="year-dot">
           <h3>2014</h3>
           <span></span>
         </div>
-        <section id="2014"></section>
+        <section id="p2014" class="project-grid"></section>
 
         <div class="year-dot">
           <h3>2013</h3>
           <span></span>
         </div>
-        <section id="2013"></section>
+        <section id="p2013" class="project-grid"></section>
 
         <div class="year-dot">
           <h3>2012</h3>
           <span></span>
         </div>
-        <section id="2012"></section>
+        <section id="p2012" class="project-grid"></section>
 
         <div class="year-dot">
           <h3>2011</h3>
           <span></span>
         </div>
-        <section id="2011"></section>
+        <section id="p2011" class="project-grid"></section>
 
         <div class="year-dot">
           <h3>2010</h3>
           <span></span>
         </div>
-        <section id="2010"></section>
+        <section id="p2010" class="project-grid"></section>
 
         <div class="year-dot">
           <h3>2009</h3>
           <span></span>
         </div>
-        <section id="2009"></section>
+        <section id="p2009" class="project-grid"></section>
 
         <div class="year-dot">
           <h3>2008</h3>
           <span></span>
         </div>
-        <section id="2008"></section>
+        <section id="p2008" class="project-grid"></section>
       </section>
     </section>
     <section id="about">
@@ -501,27 +501,32 @@
           >julianamota89@gmail.com</a
         >
       </div>
-      <form
-        action="mailto:julianamota89@gmail.com"
-        method="post"
-        enctype="text/plain"
-      >
+      <form action="https://formspree.io/julianamota89@gmail.com" method="POST">
         <h3>Send a Message</h3>
         <div class="info">
           <div>
             <label for="name">Name</label>
-            <input type="text" id="name" placeholder="text" />
+            <input type="text" id="name" placeholder="text" name="name" />
           </div>
           <div>
             <label for="subject">Subject</label>
-            <input type="text" id="subject" placeholder="text" />
+            <input type="text" id="subject" placeholder="text" name="subject" />
           </div>
           <div>
             <label for="email">Email</label>
-            <input type="email" id="email" placeholder="x@x.x" />
+            <input
+              type="email"
+              id="email"
+              placeholder="x@x.x"
+              name="_replyto"
+            />
           </div>
         </div>
-        <textarea name="comment">Enter Message here...</textarea>
+        <textarea
+          name="comment"
+          placeholder="Enter Message here..."
+          name="name"
+        ></textarea>
         <div id="send">
           <input type="submit" value="send" id="submit" />
           <label for="submit"><i class="fas fa-chevron-down"></i></label>

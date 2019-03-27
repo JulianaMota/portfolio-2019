@@ -226,7 +226,7 @@ header h2 {
 #home {
   grid-area: home;
   display: grid;
-  height: 550px;
+  height: 90vh;
 }
 .parallax {
   background-image: url("../images/homepage-illustration_2592x1147.png");
@@ -241,7 +241,7 @@ header h2 {
   font-family: var(--display-font);
   font-size: var(--font-size-subtitle);
   background-color: var(--color-white);
-  padding: 5px 25px 5px 25px;
+  padding: 1vh 25px 5px 25px;
   margin: -10px 0 30px 0;
 }
 /*********ASIDE**************/
@@ -387,12 +387,14 @@ aside i {
 }
 
 /*********PROJECTS 2018 LIT GRID**************/
-#p2018 {
+.project-grid {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 85px;
+  grid-template-rows: auto;
+  /* grid-template-rows: repeat(20, 85px); */
   padding-left: 20px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 .project-box:nth-child(odd) {
   padding-left: 50px;
@@ -769,13 +771,13 @@ footer {
 
   /*********HEADER**************/
   header svg {
-    width: 80px;
+    width: 70px;
   }
   header h1 {
-    font-size: var(--font-size-title30);
+    font-size: var(--font-size-subtitle25);
   }
   header h2 {
-    font-size: var(--font-size-text1);
+    font-size: var(--font-size-text12);
   }
   .header-back {
     display: none;
@@ -800,13 +802,15 @@ footer {
     display: flex;
     flex-direction: row;
     padding-top: 0px;
+    align-items: flex-start;
+    padding-top: 20px;
   }
   #menu nav a svg {
-    width: 20px;
+    width: 16px;
   }
   #menu nav a span {
     color: var(--color-greylight);
-    font-size: var(--font-size-subtitle18);
+    font-size: var(--font-size-subtitle1);
     font-weight: 600;
     padding-top: 0px;
     padding-left: 5px;
@@ -836,7 +840,7 @@ footer {
   }
   aside i {
     color: var(--color-darkgrey);
-    font-size: 16px;
+    font-size: 15px;
     padding: 7px;
   }
 
@@ -899,17 +903,33 @@ footer {
   /*********EACH PROJECT**************/
   .project-box {
     display: grid;
-    grid-template: 1fr/ 72px 2fr;
+    grid-template: 130px/ 2fr auto 2fr;
   }
   .project-img {
-    grid-column: 1/2;
-    grid-row: 1/2;
     width: 150px;
   }
-  .project-info {
+  .project-box .projectlink {
     grid-column: 2/3;
     grid-row: 1/2;
-    padding: 0 20px 0 100px;
+  }
+  .project-box:nth-child(odd) .projectlink {
+    padding-left: 150px;
+  }
+  .project-box:nth-child(even) .projectlink {
+    padding-left: -150px;
+  }
+  .project-info {
+    height: 173.63px;
+  }
+  .project-box:nth-child(odd) .project-info {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    padding: 0 0px 0 0px;
+  }
+  .project-box:nth-child(even) .project-info {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    padding: 0 0px 0 0px;
   }
   .project-info h2 {
     text-align: left;
@@ -923,15 +943,18 @@ footer {
   }
 
   /*********PROJECTS 2018 LIT GRID**************/
-  #p2018 {
+  .project-grid {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 130px;
-    padding-left: calc(38% - 2px);
-    margin-top: 20px;
+    grid-template-rows: auto;
+    /* grid-template-rows: repeat(20, 130px); */
+    /* padding-left: calc(38% - 2px); */
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 0;
   }
   .project-box:nth-child(odd) {
-    padding-left: 75px;
+    padding-left: 0px;
   }
   .project-box:nth-child(even) {
     padding-left: 0px;

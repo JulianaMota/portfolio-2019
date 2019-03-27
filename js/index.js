@@ -1,4 +1,6 @@
 "use strict";
+//arr
+let projectsarr;
 // btn about
 const aboutBtn = document.querySelector("[data-action=about]");
 const currentBtnColor = "#c7c7c7";
@@ -14,7 +16,7 @@ const eduArticle = document.querySelector("#education-article");
 const expArticle = document.querySelector("#experience-article");
 const sofArticle = document.querySelector("#software-article");
 const hobArticle = document.querySelector("#hobbies-article");
-console.log(aboutArticle, eduArticle, expArticle, sofArticle, hobArticle);
+// console.log(aboutArticle, eduArticle, expArticle, sofArticle, hobArticle);
 
 window.addEventListener("DOMContentLoaded", init);
 
@@ -91,7 +93,7 @@ function hobClicked() {
 }
 
 function get() {
-  fetch("https://restju-f026.restdb.io/rest/portfolioprojects?year=2018", {
+  fetch("https://restju-f026.restdb.io/rest/portfolioprojects", {
     method: "get",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
@@ -101,13 +103,35 @@ function get() {
   })
     .then(e => e.json())
     .then(e => {
-      console.log(e);
-      e.forEach(displayP2018);
+      // console.log(e);
+      projectsarr = e;
+      const sortedarr = projectsarr.sort(projectssorted);
+      console.log(sortedarr);
+      // const p2018 = sortedarr.filter(project => project.year == "2018");
+      sortedarr.forEach(displayP2018);
+      // const p2017 = sortedarr.filter(project => project.year == "2017");
+      // p2017.forEach(displayP2017);
+      // const p2016 = sortedarr.filter(project => project.year == "2016");
+      // p2016.forEach(displayP2016);
+      // const p2015 = sortedarr.filter(project => project.year == "2015");
+      // p2015.forEach(displayP2015);
+      // const p2014 = sortedarr.filter(project => project.year == "2014");
+      // p2014.forEach(displayP2014);
+      // // const p2013 = sortedarr.filter(project => project.year == "2013");
+      // // p2013.forEach(displayP2013);
     });
 }
 
+function projectssorted(a, b) {
+  if (a.date > b.date) {
+    return -1;
+  } else {
+    return 1;
+  }
+}
+
 function displayP2018(project) {
-  console.log(project);
+  // console.log(project);
   const copy = document.querySelector("template").content.cloneNode(true);
 
   copy.querySelector("img").src =
@@ -116,17 +140,17 @@ function displayP2018(project) {
     "?key=5c9667bddf5d634f46ecae24";
 
   const target = copy.querySelector("[data-anime]");
-  console.log(target);
+  // console.log(target);
   window.addEventListener("scroll", () => {
     animateScroll();
   });
   function animateScroll() {
     const windowTop = window.pageYOffset + (window.innerHeight * 3) / 4;
     if (windowTop > target.offsetTop) {
-      console.log("in");
+      // console.log("in");
       target.classList.add("animate");
     } else {
-      console.log("out");
+      // console.log("out");
       target.classList.remove("animate");
     }
   }
@@ -137,18 +161,221 @@ function displayP2018(project) {
   const role = copy.querySelector(".role");
   window.addEventListener("resize", function() {
     if (window.matchMedia("(max-width: 700px)").matches) {
-      console.log("less");
+      // console.log("less");
       role.style.display = "none";
     } else {
       console.log("more");
+      // role.style.display = "block";
+      role.textContent = project.role;
+    }
+  });
+
+  if (project.year == "2018") {
+    document.querySelector("#p2018").appendChild(copy);
+  }
+  if (project.year == "2017") {
+    document.querySelector("#p2017").appendChild(copy);
+  }
+  if (project.year == "2016") {
+    document.querySelector("#p2016").appendChild(copy);
+  }
+  if (project.year == "2015") {
+    document.querySelector("#p2015").appendChild(copy);
+  }
+  if (project.year == "2014") {
+    document.querySelector("#p2014").appendChild(copy);
+  }
+  if (project.year == "2013") {
+    document.querySelector("#p2013").appendChild(copy);
+  }
+  if (project.year == "2012") {
+    document.querySelector("#p2012").appendChild(copy);
+  }
+  if (project.year == "2011") {
+    document.querySelector("#p2011").appendChild(copy);
+  }
+  if (project.year == "2010") {
+    document.querySelector("#p2010").appendChild(copy);
+  }
+  if (project.year == "2009") {
+    document.querySelector("#p2009").appendChild(copy);
+  }
+  if (project.year == "2008") {
+    document.querySelector("#p2008").appendChild(copy);
+  }
+}
+
+function displayP2017(project) {
+  // console.log(project);
+  const copy = document.querySelector("template").content.cloneNode(true);
+
+  copy.querySelector("img").src =
+    "https://restju-f026.restdb.io/media/" +
+    project.image +
+    "?key=5c9667bddf5d634f46ecae24";
+
+  const target = copy.querySelector("[data-anime]");
+  // console.log(target);
+  window.addEventListener("scroll", () => {
+    animateScroll();
+  });
+  function animateScroll() {
+    const windowTop = window.pageYOffset + (window.innerHeight * 3) / 4;
+    if (windowTop > target.offsetTop) {
+      // console.log("in");
+      target.classList.add("animate");
+    } else {
+      // console.log("out");
+      target.classList.remove("animate");
+    }
+  }
+
+  copy.querySelector(".projectlink").href = project.link;
+  copy.querySelector("h2").textContent = project.title;
+  copy.querySelector(".place").textContent = project.place;
+  const role = copy.querySelector(".role");
+  window.addEventListener("resize", function() {
+    if (window.matchMedia("(max-width: 700px)").matches) {
+      // console.log("less");
+      role.style.display = "none";
+    } else {
+      // console.log("more");
       role.style.display = "block";
       role.textContent = project.role;
     }
   });
 
-  document.querySelector("#p2018").appendChild(copy);
+  document.querySelector("#p2017").appendChild(copy);
 }
 
+function displayP2016(project) {
+  // console.log(project);
+  const copy = document.querySelector("template").content.cloneNode(true);
+
+  copy.querySelector("img").src =
+    "https://restju-f026.restdb.io/media/" +
+    project.image +
+    "?key=5c9667bddf5d634f46ecae24";
+
+  const target = copy.querySelector("[data-anime]");
+  // console.log(target);
+  window.addEventListener("scroll", () => {
+    animateScroll();
+  });
+  function animateScroll() {
+    const windowTop = window.pageYOffset + (window.innerHeight * 3) / 4;
+    if (windowTop > target.offsetTop) {
+      // console.log("in");
+      target.classList.add("animate");
+    } else {
+      // console.log("out");
+      target.classList.remove("animate");
+    }
+  }
+
+  copy.querySelector(".projectlink").href = project.link;
+  copy.querySelector("h2").textContent = project.title;
+  copy.querySelector(".place").textContent = project.place;
+  const role = copy.querySelector(".role");
+  window.addEventListener("resize", function() {
+    if (window.matchMedia("(max-width: 700px)").matches) {
+      // console.log("less");
+      role.style.display = "none";
+    } else {
+      // console.log("more");
+      role.style.display = "block";
+      role.textContent = project.role;
+    }
+  });
+
+  document.querySelector("#p2016").appendChild(copy);
+}
+
+function displayP2015(project) {
+  // console.log(project);
+  const copy = document.querySelector("template").content.cloneNode(true);
+
+  copy.querySelector("img").src =
+    "https://restju-f026.restdb.io/media/" +
+    project.image +
+    "?key=5c9667bddf5d634f46ecae24";
+
+  const target = copy.querySelector("[data-anime]");
+  // console.log(target);
+  window.addEventListener("scroll", () => {
+    animateScroll();
+  });
+  function animateScroll() {
+    const windowTop = window.pageYOffset + (window.innerHeight * 3) / 4;
+    if (windowTop > target.offsetTop) {
+      // console.log("in");
+      target.classList.add("animate");
+    } else {
+      // console.log("out");
+      target.classList.remove("animate");
+    }
+  }
+
+  copy.querySelector(".projectlink").href = project.link;
+  copy.querySelector("h2").textContent = project.title;
+  copy.querySelector(".place").textContent = project.place;
+  const role = copy.querySelector(".role");
+  window.addEventListener("resize", function() {
+    if (window.matchMedia("(max-width: 700px)").matches) {
+      // console.log("less");
+      role.style.display = "none";
+    } else {
+      // console.log("more");
+      role.style.display = "block";
+      role.textContent = project.role;
+    }
+  });
+
+  document.querySelector("#p2015").appendChild(copy);
+}
+
+function displayP2014(project) {
+  // console.log(project);
+  const copy = document.querySelector("template").content.cloneNode(true);
+
+  copy.querySelector("img").src =
+    "https://restju-f026.restdb.io/media/" +
+    project.image +
+    "?key=5c9667bddf5d634f46ecae24";
+
+  const target = copy.querySelector("[data-anime]");
+  // console.log(target);
+  window.addEventListener("scroll", () => {
+    animateScroll();
+  });
+  function animateScroll() {
+    const windowTop = window.pageYOffset + (window.innerHeight * 3) / 4;
+    if (windowTop > target.offsetTop) {
+      // console.log("in");
+      target.classList.add("animate");
+    } else {
+      // console.log("out");
+      target.classList.remove("animate");
+    }
+  }
+
+  copy.querySelector(".projectlink").href = project.link;
+  copy.querySelector("h2").textContent = project.title;
+  copy.querySelector(".place").textContent = project.place;
+  const role = copy.querySelector(".role");
+  window.addEventListener("resize", function() {
+    if (window.matchMedia("(max-width: 700px)").matches) {
+      // console.log("less");
+      role.style.display = "none";
+    } else {
+      // console.log("more");
+      role.style.display = "block";
+      role.textContent = project.role;
+    }
+  });
+
+  document.querySelector("#p2014").appendChild(copy);
+}
 // const projectlink = document.querySelectorAll(".projectlink");
 // console.log(projectlink);
 // projectlink.addEventListener("mouseover", () => {
