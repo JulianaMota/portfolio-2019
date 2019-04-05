@@ -882,7 +882,8 @@ footer {
   #work .year-dot {
     display: flex;
     justify-content: flex-end;
-    width: 50%;
+    width: calc(50% + 3.8%);
+    margin-top: 80px;
   }
   #work .year-dot h3 {
     font-size: var(--font-size-subtitle25);
@@ -897,13 +898,13 @@ footer {
     position: relative;
   }
   .vl {
-    left: calc(50% - 1%);
+    left: 52vw;
   }
 
   /*********EACH PROJECT**************/
   .project-box {
     display: grid;
-    grid-template: 130px/ 2fr auto 2fr;
+    grid-template: 130px/ 2fr 75px 2fr;
   }
   .project-img {
     width: 150px;
@@ -912,11 +913,14 @@ footer {
     grid-column: 2/3;
     grid-row: 1/2;
   }
+  .project-box .projectlink:hover {
+    transform: scale(1.1);
+  }
   .project-box:nth-child(odd) .projectlink {
-    padding-left: 150px;
+    margin-left: 0px;
   }
   .project-box:nth-child(even) .projectlink {
-    padding-left: -150px;
+    margin-left: -75px;
   }
   .project-info {
     height: 173.63px;
@@ -924,12 +928,12 @@ footer {
   .project-box:nth-child(odd) .project-info {
     grid-column: 3/4;
     grid-row: 1/2;
-    padding: 0 0px 0 0px;
+    padding: 0 30px 0 100px;
   }
   .project-box:nth-child(even) .project-info {
     grid-column: 1/2;
     grid-row: 1/2;
-    padding: 0 0px 0 0px;
+    padding: 0 100px 0 30px;
   }
   .project-info h2 {
     text-align: left;
@@ -1048,5 +1052,36 @@ footer {
   #about-article div ul li .icon-about {
     width: 30px;
     padding-right: 10px;
+  }
+
+  /*********ARTICLE EDUCATION**************/
+  #education-article {
+    display: grid;
+    grid-template: auto 1fr 1fr/ 1fr;
+    grid-row-gap: 20px;
+    margin-bottom: 20px;
+  }
+  #education-article .kea {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  #education-article .iscte {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+  #education-article section .logo-school {
+    height: 25px;
+  }
+  #education-article section div.schoolYear,
+  #experience-article section p {
+    font-size: var(--font-size-text1);
+  }
+  #education-article section h3,
+  #experience-article section h3 {
+    font-size: var(--font-size-subtitle);
+  }
+  #education-article section div .school,
+  #education-article section .schoolSkills {
+    display: block;
   }
 }
