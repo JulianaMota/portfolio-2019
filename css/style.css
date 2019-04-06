@@ -370,6 +370,8 @@ aside i {
   margin-bottom: 7px;
   font-size: var(--font-size-subtitle18);
   margin-top: 20px;
+  font-weight: 500;
+  color: var(--color-wine);
 }
 .project-info p {
   font-size: var(--font-size-small10);
@@ -529,7 +531,7 @@ aside i {
 #education-article section .schoolSkills {
   display: none;
 }
-/*********ARTICLE EDUCATION**************/
+/*********ARTICLE EXPERIENCE**************/
 #experience-article {
   display: grid;
   grid-template: auto auto auto/ 1fr;
@@ -738,7 +740,7 @@ footer {
 
 /*********DESKTOP STYLE**************/
 @media only screen and (min-width: 768px) {
-  /*********GLOBAL SELECTORS**************/
+  /*********GLOBAL SELECTORS DESKTOP**************/
   h2 {
     font-size: var(--font-size-title30);
     text-align: center;
@@ -756,7 +758,7 @@ footer {
     min-height: 200px;
   }
 
-  /*******GRID BODY***************/
+  /*******GRID BODY DESKTOP***************/
   .grid-container {
     display: grid;
     grid-template-areas:
@@ -769,7 +771,7 @@ footer {
     grid-template-columns: auto 1fr 10%;
   }
 
-  /*********HEADER**************/
+  /*********HEADER DESKTOP**************/
   header svg {
     width: 70px;
   }
@@ -784,7 +786,7 @@ footer {
     grid-area: nav;
   }
 
-  /*********NAV**************/
+  /*********NAV DESKTOP**************/
   #menu {
     grid-area: nav;
     z-index: 10;
@@ -815,7 +817,7 @@ footer {
     padding-top: 0px;
     padding-left: 5px;
   }
-  /*********LOGOS NAV**************/
+  /*********LOGOS NAV DESKTOP**************/
   .a,
   .b,
   .e {
@@ -832,7 +834,7 @@ footer {
     fill: none;
   }
 
-  /*********ASIDE**************/
+  /*********ASIDE DESKTOP**************/
   aside {
     z-index: 3;
     margin-top: 10px;
@@ -844,7 +846,7 @@ footer {
     padding: 7px;
   }
 
-  /*********HOME**************/
+  /*********HOME DESKTOP**************/
   .parallax {
     background-size: 90%;
   }
@@ -857,7 +859,7 @@ footer {
     margin: 10px 0 30px 0;
   }
 
-  /*********PROJECTS FILTERS*************/
+  /*********PROJECTS FILTERS DESKTOP*************/
   #work #filters {
     display: grid;
     grid-template: 1fr/ 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -878,7 +880,7 @@ footer {
     width: 100%;
   }
 
-  /*********PROJECTS YEAR**************/
+  /*********PROJECTS YEAR DESKTOP**************/
   #work .year-dot {
     display: flex;
     justify-content: flex-end;
@@ -901,7 +903,7 @@ footer {
     left: 52vw;
   }
 
-  /*********EACH PROJECT**************/
+  /*********EACH PROJEC DESKTOPT**************/
   .project-box {
     display: grid;
     grid-template: 130px/ 2fr 75px 2fr;
@@ -938,15 +940,14 @@ footer {
   .project-info h2 {
     text-align: left;
     margin-bottom: 7px;
-    font-size: var(--font-size-subtitle);
+    font-size: var(--font-size-subtitle25);
     margin-top: 40px;
-    font-weight: 600;
   }
   .project-info p {
     font-size: var(--font-size-text1);
   }
 
-  /*********PROJECTS 2018 LIT GRID**************/
+  /*********PROJECTS 2018 LIT GRID DESKTOP**************/
   .project-grid {
     display: grid;
     grid-template-columns: auto;
@@ -964,7 +965,7 @@ footer {
     padding-left: 0px;
   }
 
-  /*********ABOUT**************/
+  /*********ABOUT DESKTOP**************/
   #about .about-menu {
     display: grid;
     grid-template: auto 1fr/ 73px 1fr;
@@ -996,7 +997,7 @@ footer {
     height: 100%;
     z-index: -2;
   }
-  /************ABOUT DETAIL *********/
+  /************ABOUT DETAIL DESKTOP*********/
   #about .about-menu .detail-about {
     min-height: 500px;
     padding: 0 90px 0 100px;
@@ -1010,11 +1011,12 @@ footer {
     text-align: right;
     font-size: var(--font-size-title30);
     align-self: center;
+    color: var(--color-wine);
   }
-  /************ARTICLE about*********/
+  /************ARTICLE about DESKTOP*********/
   #about-article {
     display: grid;
-    grid-template: auto auto/ 1fr 1fr 2fr;
+    grid-template: 100px auto/ 1fr 1fr 2fr;
     grid-row-gap: 10px;
   }
 
@@ -1054,10 +1056,10 @@ footer {
     padding-right: 10px;
   }
 
-  /*********ARTICLE EDUCATION**************/
+  /*********ARTICLE EDUCATION DESKTOP**************/
   #education-article {
     display: grid;
-    grid-template: auto 1fr 1fr/ 1fr;
+    grid-template: 100px 1fr 1fr/ 1fr;
     grid-row-gap: 20px;
     margin-bottom: 20px;
   }
@@ -1069,19 +1071,131 @@ footer {
     grid-column: 1/2;
     grid-row: 3/4;
   }
+  #education-article section {
+    display: grid;
+    grid-template: 30px 30% auto / 1fr 4fr;
+    column-gap: 20px;
+  }
   #education-article section .logo-school {
     height: 25px;
+    grid-column: 1/2;
+    grid-row: 1/-1;
+    justify-self: center;
+  }
+  #education-article section .schoolDetail {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
   }
   #education-article section div.schoolYear,
   #experience-article section p {
-    font-size: var(--font-size-text1);
+    font-size: var(--font-size-subtitle18);
   }
   #education-article section h3,
   #experience-article section h3 {
-    font-size: var(--font-size-subtitle);
+    font-size: var(--font-size-subtitle25);
   }
   #education-article section div .school,
   #education-article section .schoolSkills {
     display: block;
+    font-size: var(--font-size-text1);
+    line-height: 1.3;
+  }
+  /*********ARTICLE EXPERIENCE DESKTOP**************/
+  #experience-article {
+    display: grid;
+    grid-template: 100px auto auto/ 1fr;
+    grid-row-gap: 20px;
+    margin-bottom: 20px;
+  }
+  #experience-article #core-section {
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
+  #experience-article #primus-section {
+    grid-row: 3/4;
+    grid-column: 1/2;
+  }
+  #experience-article .exp-grid {
+    display: grid;
+    grid-template: 30px 30% auto / 1fr 4fr;
+  }
+  #experience-article .exp-grid .exp-title {
+    grid-column: 1/2;
+    grid-row: 1/-1;
+    display: flex;
+    flex-direction: column;
+  }
+  #experience-article section div #core {
+    width: 60px;
+    align-self: center;
+  }
+  #experience-article section div #primus {
+    align-self: center;
+    width: 80px;
+  }
+  #experience-article section div .exp-name,
+  #experience-article section .projects-exp {
+    display: block;
+    font-size: var(--font-size-text1);
+    line-height: 1.3;
+  }
+  #experience-article section div .exp-name {
+    align-self: center;
+    padding-top: 10px;
+  }
+
+  /*********ARTICLE SOFTWARE DESKTOP**************/
+  #software-article {
+    display: grid;
+    grid-template: 100px auto/ 1fr;
+    grid-row-gap: 20px;
+    margin-bottom: 20px;
+  }
+  #software-article section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-row-gap: 20px;
+  }
+  #software-article section div {
+    display: grid;
+    grid-template: 70px auto / 1fr;
+  }
+  #software-article section div i {
+    font-size: 60px;
+  }
+  #software-article section div img {
+    width: 60px;
+    height: 60px;
+  }
+  #software-article section div p {
+    font-size: var(--font-size-subtitle18);
+  }
+
+  /*********ARTICLE HOBBIES DESKTOP**************/
+  #hobbies-article {
+    display: grid;
+    grid-template: 100px auto/ 1fr;
+    grid-row-gap: 10px;
+    margin-bottom: 20px;
+  }
+  #hobbies-article section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  #hobbies-article section div {
+    display: grid;
+    grid-template: auto auto / 1fr;
+  }
+  #hobbies-article section div img {
+    width: 170px;
+    align-self: center;
+    justify-self: center;
+  }
+  #hobbies-article section div p {
+    font-size: var(--font-size-subtitle);
+    align-self: flex-start;
+    text-align: center;
+    padding-left: 0px;
   }
 }

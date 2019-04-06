@@ -150,15 +150,16 @@ function displayP2018(project) {
   copy.querySelector(".projectlink").href = project.link;
   copy.querySelector("h2").textContent = project.title;
   copy.querySelector(".place").textContent = project.place;
-  const role = copy.querySelector(".role span");
+  const role = copy.querySelector(".role");
+  const roletext = copy.querySelector(".role p");
   window.addEventListener("resize", function() {
     if (window.matchMedia("(max-width: 700px)").matches) {
       // console.log("less");
       role.style.display = "none";
     } else {
       console.log("more");
-      // role.style.display = "block";
-      role.textContent = project.role;
+      role.style.display = "block";
+      roletext.textContent = project.role;
     }
   });
 
