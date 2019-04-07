@@ -168,6 +168,10 @@ h2 {
   margin-bottom: -10px;
   margin-top: 20px;
 }
+.margin-h2-cont {
+  margin-bottom: -60px;
+  margin-top: 20px;
+}
 
 .lines {
   z-index: 2;
@@ -175,6 +179,13 @@ h2 {
   background-size: 80%;
   background-repeat: no-repeat;
   min-height: 40px;
+}
+.lineContacts {
+  z-index: 2;
+  background-image: url(../images/small-line-contects_739x163.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  min-height: 150px;
 }
 
 /***************** GRID *******************/
@@ -407,6 +418,7 @@ aside i {
 /*********ABOUT**************/
 #about {
   grid-area: about;
+  margin-bottom: 60px;
 }
 #about .about-menu {
   display: grid;
@@ -748,6 +760,12 @@ footer {
   .marginbt-h2 {
     margin-bottom: -8%;
     margin-top: 70px;
+    z-index: 20;
+  }
+  .margin-h2-cont {
+    margin-bottom: -13%;
+    margin-top: 70px;
+    z-index: 20;
   }
 
   .lines {
@@ -756,6 +774,16 @@ footer {
     background-size: 95%;
     background-repeat: no-repeat;
     min-height: 200px;
+    background-color: white;
+    z-index: 200;
+  }
+  .lineContacts {
+    z-index: 2;
+    background-image: url(../images/line-big-cotacts_3861x625.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-height: 300px;
+    z-index: 101;
   }
 
   /*******GRID BODY DESKTOP***************/
@@ -772,6 +800,9 @@ footer {
   }
 
   /*********HEADER DESKTOP**************/
+  header {
+    z-index: 30;
+  }
   header svg {
     width: 70px;
   }
@@ -789,7 +820,7 @@ footer {
   /*********NAV DESKTOP**************/
   #menu {
     grid-area: nav;
-    z-index: 10;
+    z-index: 30;
     position: static;
     display: flex;
     justify-content: flex-end;
@@ -1197,5 +1228,138 @@ footer {
     align-self: flex-start;
     text-align: center;
     padding-left: 0px;
+  }
+  /*********CONTACT Desktop**************/
+  #contact {
+    grid-area: contacts;
+    padding-bottom: 100px;
+  }
+  #contact div {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #contact div h3 {
+    font-size: var(--font-size-subtitle25);
+  }
+  #contact div img {
+    width: 100px;
+  }
+  #contact div p,
+  #contact div a {
+    font-size: var(--font-size-subtitle18);
+  }
+  /*********CONTACT FORM DESKTOP**************/
+
+  #contact form {
+    grid-template-columns: 1fr 2fr auto;
+    grid-template-rows: auto 1fr;
+    padding: 0 100px 0 100px;
+    grid-column-gap: 20px;
+  }
+  #contact form h3 {
+    grid-column: 1/3;
+    grid-row: 1/2;
+    font-size: var(--font-size-subtitle25);
+  }
+  #contact form .info {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    grid-row-gap: 10px;
+  }
+  #contact form .info div {
+    grid-template: 1fr/1fr 4fr;
+  }
+  #contact form .info div label {
+    padding-right: 10px;
+    font-size: var(--font-size-subtitle18);
+  }
+  #contact form textarea {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    font-size: var(--font-size-text12);
+    color: var(--color-darkgrey);
+  }
+  #contact form #send {
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
+  #contact form #send label {
+    font-size: 20px;
+  }
+  #contact form #send input {
+    font-size: var(--font-size-subtitle25);
+  }
+  #contact form #send input:hover,
+  #contact form #send label:hover {
+    box-shadow: none;
+    color: var(--color-wine);
+  }
+
+  #contact form input {
+    font-size: var(--font-size-text12);
+    height: 35px;
+  }
+  #contact form input:focus,
+  #contact form textarea:focus {
+    box-shadow: 2px 2px 8px 1px var(--color-darkgrey);
+    outline: none;
+  }
+
+  /*********FOOTER**************/
+  footer {
+    grid-area: footer;
+    display: block;
+    font-size: var(--font-size-text12);
+    background-image: url(../images/footer-background_3841x281.png);
+    height: 90px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 120%;
+    background-color: var(--color-grey);
+    display: grid;
+    grid-template: 20px auto / auto;
+    justify-content: center;
+  }
+
+  footer p,
+  footer div {
+    color: var(--color-white);
+    text-align: center;
+    padding-top: 50px;
+    font-weight: 600;
+  }
+  footer div a {
+    text-decoration: none;
+    color: var(--color-wine);
+  }
+
+  /*********FIXED NAV*************/
+  .header-back {
+    display: block;
+    position: fixed;
+    top: -100%;
+    background-image: url(../images/fixed-nav-dark_3716x552.png);
+    height: 30%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 10;
+    transition: 0.5s;
+  }
+
+  [data-animeH="fixedlogo"].animateH {
+    position: fixed;
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  [data-animeH="fixednav"].animateN {
+    z-index: 100;
+    top: 0;
+    right: 10%;
+    height: 10%;
+  }
+  [data-animeH="fixednav"] nav a .animateN {
   }
 }

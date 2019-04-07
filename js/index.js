@@ -18,6 +18,36 @@ const sofArticle = document.querySelector("#software-article");
 const hobArticle = document.querySelector("#hobbies-article");
 // console.log(aboutArticle, eduArticle, expArticle, sofArticle, hobArticle);
 
+// content about
+const fixedBack = document.querySelector(".header-back");
+const nav = document.querySelector("#menu");
+const logo = document.querySelector("#moveheader");
+
+window.addEventListener("scroll", headerFixed);
+
+function headerFixed() {
+  if (
+    document.body.scrollTop > 100 ||
+    document.documentElement.scrollTop > 100
+  ) {
+    fixedBack.style.top = "0%";
+    fixedBack.style.opacity = 1;
+    document.querySelector("#Layer_3").style.color = "white";
+    document.querySelector("[data-animeH=fixedlogo]").classList.add("animateH");
+    document.querySelector("[data-animeH=fixednav]").classList.add("animateN");
+    nav.style.position = "fixed";
+  } else {
+    fixedBack.style.top = "-100%";
+    document
+      .querySelector("[data-animeH=fixedlogo]")
+      .classList.remove("animateH");
+    document
+      .querySelector("[data-animeH=fixednav]")
+      .classList.remove("animateN");
+    nav.style.position = "relative";
+  }
+}
+
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
