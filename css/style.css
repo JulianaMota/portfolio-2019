@@ -760,7 +760,7 @@ footer {
   .marginbt-h2 {
     margin-bottom: -8%;
     margin-top: 70px;
-    z-index: 20;
+    z-index: 101 !important;
   }
   .margin-h2-cont {
     margin-bottom: -13%;
@@ -775,7 +775,7 @@ footer {
     background-repeat: no-repeat;
     min-height: 200px;
     background-color: white;
-    z-index: 200;
+    z-index: 200 !important;
   }
   .lineContacts {
     z-index: 2;
@@ -783,7 +783,10 @@ footer {
     background-size: 100%;
     background-repeat: no-repeat;
     min-height: 300px;
-    z-index: 101;
+    z-index: 101 !important;
+  }
+  body {
+    font-weight: 600;
   }
 
   /*******GRID BODY DESKTOP***************/
@@ -872,16 +875,19 @@ footer {
     stroke: var(--color-white);
     transition: 1s;
   }
-  .tagColorWhite{
-    color: var(--color-white);
+  .tagColorWhite {
+    color: var(--color-white) !important;
     transition: 1s;
   }
 
   /*********ASIDE DESKTOP**************/
   aside {
-    z-index: 3;
+    z-index: 200;
     margin-top: 10px;
     left: 95%;
+  }
+  aside a {
+    cursor: pointer;
   }
   aside i {
     color: var(--color-darkgrey);
@@ -911,7 +917,7 @@ footer {
     padding: 0 25px 0 25px;
   }
   #work #filters button {
-    border: none;
+    border-bottom: solid 2px transparent;
     background-color: transparent;
     font-family: var(--display-font);
     font-size: var(--font-size-subtitle);
@@ -1364,6 +1370,7 @@ footer {
     position: fixed;
     color: var(--color-white);
     font-weight: 600;
+    transition: 1s;
   }
 
   [data-animeH="fixednav"].animateN {
@@ -1371,5 +1378,6 @@ footer {
     top: 0;
     right: 10%;
     height: 10%;
+    transition: 1s;
   }
 }

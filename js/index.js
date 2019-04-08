@@ -1,6 +1,7 @@
 "use strict";
 //arr
 let projectsarr;
+let sortedarr;
 // btn about
 const aboutBtn = document.querySelector("[data-action=about]");
 const currentBtnColor = "#c7c7c7";
@@ -23,7 +24,7 @@ const fixedBack = document.querySelector(".header-back");
 const nav = document.querySelector("#menu");
 const logo = document.querySelector("#moveheader");
 const aNav = document.querySelectorAll(".atag");
-console.log(aNav);
+const jmoLogo = document.querySelectorAll(".jmologo");
 
 window.addEventListener("scroll", headerFixed);
 
@@ -32,14 +33,15 @@ function headerFixed() {
   let b = document.querySelectorAll(".b");
   let e = document.querySelectorAll(".e");
   let c = document.querySelectorAll(".c");
- 
+
   if (
     document.body.scrollTop > 100 ||
     document.documentElement.scrollTop > 100
   ) {
     fixedBack.style.top = "0%";
-    fixedBack.style.opacity = 1;
+    fixedBack.style.opacity = 0.7;
 
+    jmoLogo.forEach(l => l.classList.add("colorWhite"));
     aNav.forEach(aName => aName.classList.add("tagColorWhite"));
     e.forEach(e => e.classList.add("colorWhite"));
     a.forEach(a => a.classList.add("colorWhite"));
@@ -69,6 +71,8 @@ function headerFixed() {
     b.forEach(b => b.classList.remove("strokeWhite"));
     c.forEach(c => c.classList.remove("strokeWhite"));
     e.forEach(e => e.classList.remove("strokeWhite"));
+    jmoLogo.forEach(l => l.classList.remove("colorWhite"));
+    aNav.forEach(aName => aName.classList.remove("tagColorWhite"));
   }
 }
 
@@ -82,6 +86,25 @@ function init() {
   expBtn.addEventListener("click", expClicked);
   sofBtn.addEventListener("click", sofClicked);
   hobBtn.addEventListener("click", hobClicked);
+
+  document
+    .querySelector("[data-action=arq]")
+    .addEventListener("click", filerArk);
+  document
+    .querySelector("[data-action=ani]")
+    .addEventListener("click", filerArk);
+  document
+    .querySelector("[data-action=web]")
+    .addEventListener("click", filerArk);
+  document
+    .querySelector("[data-action=app]")
+    .addEventListener("click", filerArk);
+  document
+    .querySelector("[data-action=vid]")
+    .addEventListener("click", filerArk);
+  document
+    .querySelector("[data-action=all]")
+    .addEventListener("click", filerArk);
   get();
 }
 
@@ -159,11 +182,11 @@ function get() {
     .then(e => {
       // console.log(e);
       projectsarr = e;
-      const sortedarr = projectsarr.sort(projectssorted);
+      sortedarr = projectsarr.sort(projectssorted);
       console.log(sortedarr);
       // const p2018 = sortedarr.filter(project => project.year == "2018");
       sortedarr.forEach(displayP2018);
-      // const p2017 = sortedarr.filter(project => project.year == "2017");
+
       // p2017.forEach(displayP2017);
     });
 }
@@ -250,6 +273,28 @@ function displayP2018(project) {
   if (project.year == "2008") {
     document.querySelector("#p2008").appendChild(copy);
   }
+}
+
+/////////////////FILTERS
+
+function filerArk() {
+  console.log(this.getAttribute("[data-action]"));
+  console.log(sortedarr);
+  const arqF = sortedarr.filter(project => project.category === "Architecture");
+  console.log(arqF);
+  document.querySelector("#p2018").innerHTML = "";
+  document.querySelector("#p2017").innerHTML = "";
+  document.querySelector("#p2016").innerHTML = "";
+  document.querySelector("#p2015").innerHTML = "";
+  document.querySelector("#p2014").innerHTML = "";
+  document.querySelector("#p2012").innerHTML = "";
+  document.querySelector("#p2013").innerHTML = "";
+  document.querySelector("#p2011").innerHTML = "";
+  document.querySelector("#p2010").innerHTML = "";
+  document.querySelector("#p2009").innerHTML = "";
+  document.querySelector("#p2008").innerHTML = "";
+
+  arqF.forEach(displayP2018);
 }
 
 // const projectlink = document.querySelectorAll(".projectlink");
