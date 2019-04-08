@@ -22,17 +22,33 @@ const hobArticle = document.querySelector("#hobbies-article");
 const fixedBack = document.querySelector(".header-back");
 const nav = document.querySelector("#menu");
 const logo = document.querySelector("#moveheader");
+const aNav = document.querySelectorAll(".atag");
+console.log(aNav);
 
 window.addEventListener("scroll", headerFixed);
 
 function headerFixed() {
+  let a = document.querySelectorAll(".a");
+  let b = document.querySelectorAll(".b");
+  let e = document.querySelectorAll(".e");
+  let c = document.querySelectorAll(".c");
+ 
   if (
     document.body.scrollTop > 100 ||
     document.documentElement.scrollTop > 100
   ) {
     fixedBack.style.top = "0%";
     fixedBack.style.opacity = 1;
-    document.querySelector("#Layer_3").style.color = "white";
+
+    aNav.forEach(aName => aName.classList.add("tagColorWhite"));
+    e.forEach(e => e.classList.add("colorWhite"));
+    a.forEach(a => a.classList.add("colorWhite"));
+    b.forEach(b => b.classList.add("colorWhite"));
+
+    b.forEach(b => b.classList.add("strokeWhite"));
+    c.forEach(c => c.classList.add("strokeWhite"));
+    e.forEach(e => e.classList.add("strokeWhite"));
+
     document.querySelector("[data-animeH=fixedlogo]").classList.add("animateH");
     document.querySelector("[data-animeH=fixednav]").classList.add("animateN");
     nav.style.position = "fixed";
@@ -45,6 +61,14 @@ function headerFixed() {
       .querySelector("[data-animeH=fixednav]")
       .classList.remove("animateN");
     nav.style.position = "relative";
+
+    e.forEach(e => e.classList.remove("colorWhite"));
+    a.forEach(a => a.classList.remove("colorWhite"));
+    b.forEach(b => b.classList.remove("colorWhite"));
+
+    b.forEach(b => b.classList.remove("strokeWhite"));
+    c.forEach(c => c.classList.remove("strokeWhite"));
+    e.forEach(e => e.classList.remove("strokeWhite"));
   }
 }
 

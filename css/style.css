@@ -864,6 +864,18 @@ footer {
   .c {
     fill: none;
   }
+  .colorWhite {
+    fill: var(--color-white);
+    transition: 1s;
+  }
+  .strokeWhite {
+    stroke: var(--color-white);
+    transition: 1s;
+  }
+  .tagColorWhite{
+    color: var(--color-white);
+    transition: 1s;
+  }
 
   /*********ASIDE DESKTOP**************/
   aside {
@@ -1359,7 +1371,5 @@ footer {
     top: 0;
     right: 10%;
     height: 10%;
-  }
-  [data-animeH="fixednav"] nav a .animateN {
   }
 }
