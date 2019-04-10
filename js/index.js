@@ -277,11 +277,10 @@ function displayP2018(project) {
 
 /////////////////FILTERS
 
-function filerArk() {
-  console.log(this.getAttribute("[data-action]"));
-  console.log(sortedarr);
-  const arqF = sortedarr.filter(project => project.category === "Architecture");
-  console.log(arqF);
+function filerArk(event) {
+  console.log(event.target.firstChild.data);
+  let currentFilter = event.target.firstChild.data;
+  let arqF = sortedarr.filter(project => project.category === currentFilter);
   document.querySelector("#p2018").innerHTML = "";
   document.querySelector("#p2017").innerHTML = "";
   document.querySelector("#p2016").innerHTML = "";
@@ -293,8 +292,26 @@ function filerArk() {
   document.querySelector("#p2010").innerHTML = "";
   document.querySelector("#p2009").innerHTML = "";
   document.querySelector("#p2008").innerHTML = "";
+  let projectSections = document.querySelectorAll(".project-grid");
 
-  arqF.forEach(displayP2018);
+  let yearlist = document.querySelectorAll(".year-dot");
+  if (currentFilter === "All") {
+    sortedarr.forEach(displayP2018);
+    yearlist.forEach(year => year.classList.remove("hide"));
+  } else {
+    arqF.forEach(displayP2018);
+    projectSections.forEach(projectS => {
+      // const article = document.querySelector(".project-box");
+      // console.log(projectS.contains(article));
+      console.log(projectS.childNodes.length);
+
+      if (projectS.childNodes.length === 0) {
+        yearlist.forEach(year => year.classList.add("hide"));
+      } else {
+        yearlist.forEach(year => year.classList.remove("hide"));
+      }
+    });
+  }
 }
 
 // const projectlink = document.querySelectorAll(".projectlink");

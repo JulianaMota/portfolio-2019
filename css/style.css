@@ -178,14 +178,14 @@ h2 {
   background-image: url(../images/mobile-lines.png);
   background-size: 80%;
   background-repeat: no-repeat;
-  min-height: 40px;
+  min-height: 80px;
 }
 .lineContacts {
   z-index: 2;
   background-image: url(../images/small-line-contects_739x163.png);
   background-size: 100%;
   background-repeat: no-repeat;
-  min-height: 150px;
+  min-height: 250px;
 }
 
 /***************** GRID *******************/
@@ -329,6 +329,7 @@ aside i {
   background-color: transparent;
   font-family: var(--display-font);
   font-size: var(--font-size-text1);
+  outline: none;
 }
 
 /*********PROJECTS YEAR**************/
@@ -618,7 +619,7 @@ aside i {
 #contact {
   grid-area: contacts;
   background-color: var(--color-grey);
-  padding-bottom: 100px;
+  padding-bottom: 30%;
 }
 #contact div {
   display: grid;
@@ -786,7 +787,7 @@ footer {
     z-index: 101 !important;
   }
   body {
-    font-weight: 600;
+    /* font-weight: 600; */
   }
 
   /*******GRID BODY DESKTOP***************/
@@ -839,7 +840,7 @@ footer {
     flex-direction: row;
     padding-top: 0px;
     align-items: flex-start;
-    padding-top: 20px;
+    padding-top: 10px;
   }
   #menu nav a svg {
     width: 16px;
@@ -995,6 +996,14 @@ footer {
   .project-info p {
     font-size: var(--font-size-text1);
   }
+  .project-info .role {
+    font-family: var(--text-font);
+    font-size: var(--font-size-text1);
+    padding-top: 10px;
+  }
+  .project-info .role p {
+    font-size: var(--font-size-text12);
+  }
 
   /*********PROJECTS 2018 LIT GRID DESKTOP**************/
   .project-grid {
@@ -1067,6 +1076,8 @@ footer {
     display: grid;
     grid-template: 100px auto/ 1fr 1fr 2fr;
     grid-row-gap: 10px;
+    grid-column-gap: 20px;
+    margin-bottom: 40px;
   }
 
   #about-article .values {
@@ -1237,7 +1248,7 @@ footer {
     grid-template: auto auto / 1fr;
   }
   #hobbies-article section div img {
-    width: 170px;
+    width: 70%;
     align-self: center;
     justify-self: center;
   }
