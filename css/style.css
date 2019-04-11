@@ -187,6 +187,10 @@ h2 {
   background-repeat: no-repeat;
   min-height: 250px;
 }
+strong {
+  font-weight: 900;
+  color: var(--color-darkgrey);
+}
 
 /***************** GRID *******************/
 .grid-container {
@@ -701,7 +705,7 @@ aside i {
 }
 #contact form #send input {
   font-size: var(--font-size-subtitle);
-  border: none;
+  border: none !important;
   background-color: transparent;
   text-align: center;
   transform: rotate(90deg);
@@ -727,6 +731,12 @@ aside i {
 #contact form textarea:focus {
   box-shadow: 2px 2px 8px 1px var(--color-darkgrey);
   outline: none;
+}
+input:valid {
+  border: solid 2px green !important;
+}
+textarea:valid {
+  border: solid 2px green !important;
 }
 
 /*********ABOUT**************/
@@ -948,15 +958,20 @@ footer {
   }
   .projects {
     position: relative;
+    /* display: grid; */
   }
   .vl {
-    left: 53vw;
+    /* position: relative; */
+    left: 52vw;
+    /* grid-column: 1/-1;
+    grid-row: 1/-1;
+    height: 200px; */
   }
 
   /*********EACH PROJEC DESKTOPT**************/
   .project-box {
     display: grid;
-    grid-template: 130px/ 2fr 75px 2fr;
+    grid-template: 130px/ 2fr 6% 2fr;
   }
   .project-img {
     width: 150px;
@@ -1390,5 +1405,14 @@ footer {
     right: 10%;
     height: 10%;
     transition: 1s;
+  }
+
+  /**************project detail page****************/
+
+  .galery-container {
+    box-sizing: border-box;
+    width: 100%;
+    user-select: none;
+    box-shadow: 0px 0px 3px 1px var(--color-grey);
   }
 }

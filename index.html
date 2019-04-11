@@ -310,19 +310,21 @@
             </div>
             <div class="text-about">
               <p>
-                My name is Juliana Mota, I'm a Multimedia Designer student at
-                Copenhagen School of Design and Technology (KEA) and I also have
-                a master degree in Architecture from Lisbon University
-                Institute.
+                <strong>Hi!</strong> My name is Juliana Mota, I'm a nerd gamer
+                and animefan with simling personality. At the moment I'm a
+                student of Multimedia Design at Copenhagen School of Design and
+                Technology (KEA) and I also have a master degree in Architecture
+                from Lisbon University Institute.
               </p>
               <p>
-                In 2017, I decided to go back to school and learn more about
-                design and coding. I keep on working with Adobe Indesign,
-                Photoshop, Illustrator and Premiere. I am also learning building
-                responsible website using tools like HTML, CSS, JavaScript, and
-                JSON. With this studies, I'm also getting the chance to make
-                myself familiar with designing documentation, preparing
-                communication plans and learning about business.
+                I'm living in Denmark since 2013 and where I have worked in the
+                architecture field. However, I decided to study again and I have
+                found a real passion for design and coding. So my goals are to
+                become a <strong>UX and UI Designer</strong> and Master my
+                skills in <strong>JS, CSS and React</strong>. I can say that I'm
+                also a creative mind who can work in many design programs or
+                fields with the desire of learning and create innovative
+                solutions.
               </p>
             </div>
           </article>
@@ -526,11 +528,25 @@
         <div class="info">
           <div>
             <label for="name">Name</label>
-            <input type="text" id="name" placeholder="text" name="name" />
+            <input
+              type="text"
+              id="name"
+              placeholder="text"
+              name="name"
+              minlength="2"
+              required
+            />
           </div>
           <div>
             <label for="subject">Subject</label>
-            <input type="text" id="subject" placeholder="text" name="subject" />
+            <input
+              type="text"
+              id="subject"
+              placeholder="text"
+              name="subject"
+              minlength="2"
+              required
+            />
           </div>
           <div>
             <label for="email">Email</label>
@@ -539,6 +555,8 @@
               id="email"
               placeholder="x@x.x"
               name="_replyto"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              required
             />
           </div>
         </div>
@@ -546,6 +564,8 @@
           name="comment"
           placeholder="Enter Message here..."
           name="name"
+          minlength="2"
+          required
         ></textarea>
         <div id="send">
           <input type="submit" value="send" id="submit" />
