@@ -19,7 +19,7 @@ const sofArticle = document.querySelector("#software-article");
 const hobArticle = document.querySelector("#hobbies-article");
 // console.log(aboutArticle, eduArticle, expArticle, sofArticle, hobArticle);
 
-// content about
+// fixed bar variavles
 const fixedBack = document.querySelector(".header-back");
 const nav = document.querySelector("#menu");
 const logo = document.querySelector("#moveheader");
@@ -27,6 +27,23 @@ const aNav = document.querySelectorAll(".atag");
 const jmoLogo = document.querySelectorAll(".jmologo");
 
 window.addEventListener("scroll", headerFixed);
+
+function resize() {
+  const roles = document.querySelectorAll(".role");
+  if (window.matchMedia("(max-width: 700px)").matches) {
+    // console.log("less");
+    roles.forEach(r => (r.style.display = "none"));
+  } else {
+    console.log("more");
+    roles.forEach(r => {
+      r.querySelector("p").text;
+      r.style.display = "block";
+    });
+    //role.style.display = "block";
+    //roletext.textContent = project.role;
+  }
+}
+window.addEventListener("resize", resize);
 
 function headerFixed() {
   let a = document.querySelectorAll(".a");
@@ -186,7 +203,7 @@ function get() {
       console.log(sortedarr);
       // const p2018 = sortedarr.filter(project => project.year == "2018");
       sortedarr.forEach(displayP2018);
-
+      resize();
       // p2017.forEach(displayP2017);
     });
 }
@@ -202,7 +219,7 @@ function projectssorted(a, b) {
 function displayP2018(project) {
   // console.log(project);
   const copy = document.querySelector("template").content.cloneNode(true);
-
+  copy.querySelector(".project-box").dataset.category = project.category;
   copy.querySelector("img").src =
     "https://restju-f026.restdb.io/media/" +
     project.image +
@@ -228,17 +245,7 @@ function displayP2018(project) {
   copy.querySelector("h2").textContent = project.title;
   copy.querySelector(".place").textContent = project.place;
   const role = copy.querySelector(".role");
-  const roletext = copy.querySelector(".role p");
-  window.addEventListener("resize", function() {
-    if (window.matchMedia("(max-width: 700px)").matches) {
-      // console.log("less");
-      role.style.display = "none";
-    } else {
-      console.log("more");
-      role.style.display = "block";
-      roletext.textContent = project.role;
-    }
-  });
+  //copy.querySelector(".role p");
 
   if (project.year == "2018") {
     document.querySelector("#p2018").appendChild(copy);
@@ -280,6 +287,7 @@ function displayP2018(project) {
 function filerArk(event) {
   console.log(event.target.firstChild.data);
   let currentFilter = event.target.firstChild.data;
+  console.log(currentFilter);
   let arqF = sortedarr.filter(project => project.category === currentFilter);
   document.querySelector("#p2018").innerHTML = "";
   document.querySelector("#p2017").innerHTML = "";
@@ -293,23 +301,30 @@ function filerArk(event) {
   document.querySelector("#p2009").innerHTML = "";
   document.querySelector("#p2008").innerHTML = "";
   let projectSections = document.querySelectorAll(".project-grid");
+  console.log(projectSections);
 
   let yearlist = document.querySelectorAll(".year-dot");
+
   if (currentFilter === "All") {
     sortedarr.forEach(displayP2018);
     yearlist.forEach(year => year.classList.remove("hide"));
   } else {
+    //console.log(projectS.childNodes.length);
     arqF.forEach(displayP2018);
     projectSections.forEach(projectS => {
       // const article = document.querySelector(".project-box");
       // console.log(projectS.contains(article));
-      console.log(projectS.childNodes.length);
-
+      if (projectS.childNodes.length === 0) {
+        projectS.previousElementSibling.classList.add("hide");
+      } else {
+        projectS.previousElementSibling.classList.remove("hide");
+      }
+      /*
       if (projectS.childNodes.length === 0) {
         yearlist.forEach(year => year.classList.add("hide"));
       } else {
         yearlist.forEach(year => year.classList.remove("hide"));
-      }
+      }*/
     });
   }
 }
