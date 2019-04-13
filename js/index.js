@@ -1,7 +1,8 @@
 "use strict";
-//arr
+//arrays
 let projectsarr;
 let sortedarr;
+
 // btn about
 const aboutBtn = document.querySelector("[data-action=about]");
 const currentBtnColor = "#c7c7c7";
@@ -11,13 +12,12 @@ const expBtn = document.querySelector("[data-action=exp]");
 const sofBtn = document.querySelector("[data-action=sof]");
 const hobBtn = document.querySelector("[data-action=hob]");
 
-// content about
+// content about variables
 const aboutArticle = document.querySelector("#about-article");
 const eduArticle = document.querySelector("#education-article");
 const expArticle = document.querySelector("#experience-article");
 const sofArticle = document.querySelector("#software-article");
 const hobArticle = document.querySelector("#hobbies-article");
-// console.log(aboutArticle, eduArticle, expArticle, sofArticle, hobArticle);
 
 // fixed bar variavles
 const fixedBack = document.querySelector(".header-back");
@@ -25,78 +25,20 @@ const nav = document.querySelector("#menu");
 const logo = document.querySelector("#moveheader");
 const aNav = document.querySelectorAll(".atag");
 const jmoLogo = document.querySelectorAll(".jmologo");
+const navATag = document.querySelectorAll("nav a");
+console.log(navATag);
 
-window.addEventListener("scroll", headerFixed);
+//svg icons variables
+const a = document.querySelectorAll(".a");
+const b = document.querySelectorAll(".b");
+const e = document.querySelectorAll(".e");
+const c = document.querySelectorAll(".c");
 
-function resize() {
-  const roles = document.querySelectorAll(".role");
-  if (window.matchMedia("(max-width: 700px)").matches) {
-    // console.log("less");
-    roles.forEach(r => (r.style.display = "none"));
-  } else {
-    console.log("more");
-    roles.forEach(r => {
-      r.querySelector("p").text;
-      r.style.display = "block";
-    });
-    //role.style.display = "block";
-    //roletext.textContent = project.role;
-  }
-}
-window.addEventListener("resize", resize);
-
-function headerFixed() {
-  let a = document.querySelectorAll(".a");
-  let b = document.querySelectorAll(".b");
-  let e = document.querySelectorAll(".e");
-  let c = document.querySelectorAll(".c");
-
-  if (
-    document.body.scrollTop > 100 ||
-    document.documentElement.scrollTop > 100
-  ) {
-    fixedBack.style.top = "0%";
-    fixedBack.style.opacity = 0.7;
-
-    jmoLogo.forEach(l => l.classList.add("colorWhite"));
-    aNav.forEach(aName => aName.classList.add("tagColorWhite"));
-    e.forEach(e => e.classList.add("colorWhite"));
-    a.forEach(a => a.classList.add("colorWhite"));
-    b.forEach(b => b.classList.add("colorWhite"));
-
-    b.forEach(b => b.classList.add("strokeWhite"));
-    c.forEach(c => c.classList.add("strokeWhite"));
-    e.forEach(e => e.classList.add("strokeWhite"));
-
-    document.querySelector("[data-animeH=fixedlogo]").classList.add("animateH");
-    document.querySelector("[data-animeH=fixednav]").classList.add("animateN");
-    nav.style.position = "fixed";
-  } else {
-    fixedBack.style.top = "-100%";
-    document
-      .querySelector("[data-animeH=fixedlogo]")
-      .classList.remove("animateH");
-    document
-      .querySelector("[data-animeH=fixednav]")
-      .classList.remove("animateN");
-    nav.style.position = "relative";
-
-    e.forEach(e => e.classList.remove("colorWhite"));
-    a.forEach(a => a.classList.remove("colorWhite"));
-    b.forEach(b => b.classList.remove("colorWhite"));
-
-    b.forEach(b => b.classList.remove("strokeWhite"));
-    c.forEach(c => c.classList.remove("strokeWhite"));
-    e.forEach(e => e.classList.remove("strokeWhite"));
-    jmoLogo.forEach(l => l.classList.remove("colorWhite"));
-    aNav.forEach(aName => aName.classList.remove("tagColorWhite"));
-  }
-}
-
+//function window event listner when load page funtion init
 window.addEventListener("DOMContentLoaded", init);
 
+//init funto with butto event listners
 function init() {
-  //console.log(aboutBtn, eduBtn, expBtn, sofBtn, hobBtn);
   aboutBtn.style.backgroundColor = currentBtnColor;
   aboutBtn.addEventListener("click", aboutClicked);
   eduBtn.addEventListener("click", eduClicked);
@@ -104,88 +46,30 @@ function init() {
   sofBtn.addEventListener("click", sofClicked);
   hobBtn.addEventListener("click", hobClicked);
 
+  navATag.forEach(a => a.addEventListener("click", navCliked));
+
   document
     .querySelector("[data-action=arq]")
-    .addEventListener("click", filerArk);
+    .addEventListener("click", filterProjects);
   document
     .querySelector("[data-action=ani]")
-    .addEventListener("click", filerArk);
+    .addEventListener("click", filterProjects);
   document
     .querySelector("[data-action=web]")
-    .addEventListener("click", filerArk);
+    .addEventListener("click", filterProjects);
   document
     .querySelector("[data-action=app]")
-    .addEventListener("click", filerArk);
+    .addEventListener("click", filterProjects);
   document
     .querySelector("[data-action=vid]")
-    .addEventListener("click", filerArk);
+    .addEventListener("click", filterProjects);
   document
     .querySelector("[data-action=all]")
-    .addEventListener("click", filerArk);
+    .addEventListener("click", filterProjects);
   get();
 }
 
-function aboutClicked() {
-  eduArticle.classList.add("hide");
-  aboutArticle.classList.remove("hide");
-  expArticle.classList.add("hide");
-  hobArticle.classList.add("hide");
-  sofArticle.classList.add("hide");
-  aboutBtn.style.backgroundColor = currentBtnColor;
-  eduBtn.style.backgroundColor = normalBtnColor;
-  expBtn.style.backgroundColor = normalBtnColor;
-  sofBtn.style.backgroundColor = normalBtnColor;
-  hobBtn.style.backgroundColor = normalBtnColor;
-}
-function eduClicked() {
-  eduArticle.classList.remove("hide");
-  aboutArticle.classList.add("hide");
-  expArticle.classList.add("hide");
-  hobArticle.classList.add("hide");
-  sofArticle.classList.add("hide");
-  eduBtn.style.backgroundColor = currentBtnColor;
-  aboutBtn.style.backgroundColor = normalBtnColor;
-  expBtn.style.backgroundColor = normalBtnColor;
-  sofBtn.style.backgroundColor = normalBtnColor;
-  hobBtn.style.backgroundColor = normalBtnColor;
-}
-function expClicked() {
-  eduArticle.classList.add("hide");
-  aboutArticle.classList.add("hide");
-  expArticle.classList.remove("hide");
-  hobArticle.classList.add("hide");
-  sofArticle.classList.add("hide");
-  aboutBtn.style.backgroundColor = normalBtnColor;
-  eduBtn.style.backgroundColor = normalBtnColor;
-  expBtn.style.backgroundColor = currentBtnColor;
-  sofBtn.style.backgroundColor = normalBtnColor;
-  hobBtn.style.backgroundColor = normalBtnColor;
-}
-function sofClicked() {
-  eduArticle.classList.add("hide");
-  aboutArticle.classList.add("hide");
-  expArticle.classList.add("hide");
-  hobArticle.classList.add("hide");
-  sofArticle.classList.remove("hide");
-  aboutBtn.style.backgroundColor = normalBtnColor;
-  eduBtn.style.backgroundColor = normalBtnColor;
-  expBtn.style.backgroundColor = normalBtnColor;
-  sofBtn.style.backgroundColor = currentBtnColor;
-  hobBtn.style.backgroundColor = normalBtnColor;
-}
-function hobClicked() {
-  eduArticle.classList.add("hide");
-  aboutArticle.classList.add("hide");
-  expArticle.classList.add("hide");
-  hobArticle.classList.remove("hide");
-  sofArticle.classList.add("hide");
-  aboutBtn.style.backgroundColor = normalBtnColor;
-  eduBtn.style.backgroundColor = normalBtnColor;
-  expBtn.style.backgroundColor = normalBtnColor;
-  sofBtn.style.backgroundColor = normalBtnColor;
-  hobBtn.style.backgroundColor = currentBtnColor;
-}
-
+// funtion to get restdb projects
 function get() {
   fetch("https://restju-f026.restdb.io/rest/portfolioprojects", {
     method: "get",
@@ -197,17 +81,19 @@ function get() {
   })
     .then(e => e.json())
     .then(e => {
-      // console.log(e);
       projectsarr = e;
+
+      //sort the array of projects by date
       sortedarr = projectsarr.sort(projectssorted);
-      console.log(sortedarr);
-      // const p2018 = sortedarr.filter(project => project.year == "2018");
+
+      // display sorte array
       sortedarr.forEach(displayP2018);
+      //call resize funtion
       resize();
-      // p2017.forEach(displayP2017);
     });
 }
 
+//funtion to sort the projects
 function projectssorted(a, b) {
   if (a.date > b.date) {
     return -1;
@@ -216,9 +102,11 @@ function projectssorted(a, b) {
   }
 }
 
+// funtion to dislply each project using template
 function displayP2018(project) {
-  // console.log(project);
   const copy = document.querySelector("template").content.cloneNode(true);
+
+  //images
   copy.querySelector(".project-box").dataset.category = project.category;
   copy.querySelector("img").src =
     "https://restju-f026.restdb.io/media/" +
@@ -241,12 +129,16 @@ function displayP2018(project) {
     }
   }
 
+  //project link
   copy.querySelector(".projectlink").href = project.link;
+  //project title
   copy.querySelector("h2").textContent = project.title;
+  //project place
   copy.querySelector(".place").textContent = project.place;
-  const role = copy.querySelector(".role");
-  //copy.querySelector(".role p");
+  //project role
+  copy.querySelector(".role p").textContent = project.role;
 
+  // append child in each section
   if (project.year == "2018") {
     document.querySelector("#p2018").appendChild(copy);
   }
@@ -282,13 +174,163 @@ function displayP2018(project) {
   }
 }
 
+//Event Resize projects diferent when resize page
+function resize() {
+  const roles = document.querySelectorAll(".role");
+  if (window.matchMedia("(max-width: 700px)").matches) {
+    // console.log("less");
+    roles.forEach(r => (r.style.display = "none"));
+  } else {
+    console.log("more");
+    roles.forEach(r => {
+      r.querySelector("p").text;
+      r.style.display = "block";
+    });
+  }
+}
+window.addEventListener("resize", resize);
+
+//Event fixed bar appear in desktop
+window.addEventListener("resize", sizheader);
+
+function sizheader() {
+  if (window.matchMedia("(max-width: 700px)").matches) {
+  } else {
+    window.addEventListener("scroll", headerFixed);
+  }
+}
+
+function headerFixed() {
+  //if Statment if page scroll 100
+  if (
+    document.body.scrollTop > 100 ||
+    document.documentElement.scrollTop > 100
+  ) {
+    //fixed bar apppears
+    fixedBack.style.top = "0%";
+    fixedBack.style.opacity = 0.7;
+
+    //logo turns white
+    jmoLogo.forEach(l => l.classList.add("colorWhite"));
+
+    //nav span turns white
+    aNav.forEach(aName => aName.classList.add("tagColorWhite"));
+
+    //svg logo turns white
+    e.forEach(e => e.classList.add("colorWhite"));
+    a.forEach(a => a.classList.add("colorWhite"));
+    b.forEach(b => b.classList.add("colorWhite"));
+    b.forEach(b => b.classList.add("strokeWhite"));
+    c.forEach(c => c.classList.add("strokeWhite"));
+    e.forEach(e => e.classList.add("strokeWhite"));
+
+    //animte classes to fix logo and nav
+    document.querySelector("[data-animeH=fixedlogo]").classList.add("animateH");
+    document.querySelector("[data-animeH=fixednav]").classList.add("animateN");
+    nav.style.position = "fixed";
+  } else {
+    //fixed bar goes back to top
+    fixedBack.style.top = "-100%";
+
+    //remove animate classes to fix the logo and nav
+    document
+      .querySelector("[data-animeH=fixedlogo]")
+      .classList.remove("animateH");
+    document
+      .querySelector("[data-animeH=fixednav]")
+      .classList.remove("animateN");
+    nav.style.position = "relative";
+
+    //take color white from the nav icons, names and jmo logo
+    e.forEach(e => e.classList.remove("colorWhite"));
+    a.forEach(a => a.classList.remove("colorWhite"));
+    b.forEach(b => b.classList.remove("colorWhite"));
+    b.forEach(b => b.classList.remove("strokeWhite"));
+    c.forEach(c => c.classList.remove("strokeWhite"));
+    e.forEach(e => e.classList.remove("strokeWhite"));
+    jmoLogo.forEach(l => l.classList.remove("colorWhite"));
+    aNav.forEach(aName => aName.classList.remove("tagColorWhite"));
+  }
+}
+
+//funtions to display content in about section
+
+//about
+function aboutClicked() {
+  eduArticle.classList.add("hide");
+  aboutArticle.classList.remove("hide");
+  expArticle.classList.add("hide");
+  hobArticle.classList.add("hide");
+  sofArticle.classList.add("hide");
+  aboutBtn.style.backgroundColor = currentBtnColor;
+  eduBtn.style.backgroundColor = normalBtnColor;
+  expBtn.style.backgroundColor = normalBtnColor;
+  sofBtn.style.backgroundColor = normalBtnColor;
+  hobBtn.style.backgroundColor = normalBtnColor;
+}
+//education
+function eduClicked() {
+  eduArticle.classList.remove("hide");
+  aboutArticle.classList.add("hide");
+  expArticle.classList.add("hide");
+  hobArticle.classList.add("hide");
+  sofArticle.classList.add("hide");
+  eduBtn.style.backgroundColor = currentBtnColor;
+  aboutBtn.style.backgroundColor = normalBtnColor;
+  expBtn.style.backgroundColor = normalBtnColor;
+  sofBtn.style.backgroundColor = normalBtnColor;
+  hobBtn.style.backgroundColor = normalBtnColor;
+}
+//exparience
+function expClicked() {
+  eduArticle.classList.add("hide");
+  aboutArticle.classList.add("hide");
+  expArticle.classList.remove("hide");
+  hobArticle.classList.add("hide");
+  sofArticle.classList.add("hide");
+  aboutBtn.style.backgroundColor = normalBtnColor;
+  eduBtn.style.backgroundColor = normalBtnColor;
+  expBtn.style.backgroundColor = currentBtnColor;
+  sofBtn.style.backgroundColor = normalBtnColor;
+  hobBtn.style.backgroundColor = normalBtnColor;
+}
+//software
+function sofClicked() {
+  eduArticle.classList.add("hide");
+  aboutArticle.classList.add("hide");
+  expArticle.classList.add("hide");
+  hobArticle.classList.add("hide");
+  sofArticle.classList.remove("hide");
+  aboutBtn.style.backgroundColor = normalBtnColor;
+  eduBtn.style.backgroundColor = normalBtnColor;
+  expBtn.style.backgroundColor = normalBtnColor;
+  sofBtn.style.backgroundColor = currentBtnColor;
+  hobBtn.style.backgroundColor = normalBtnColor;
+}
+//hobbies
+function hobClicked() {
+  eduArticle.classList.add("hide");
+  aboutArticle.classList.add("hide");
+  expArticle.classList.add("hide");
+  hobArticle.classList.remove("hide");
+  sofArticle.classList.add("hide");
+  aboutBtn.style.backgroundColor = normalBtnColor;
+  eduBtn.style.backgroundColor = normalBtnColor;
+  expBtn.style.backgroundColor = normalBtnColor;
+  sofBtn.style.backgroundColor = normalBtnColor;
+  hobBtn.style.backgroundColor = currentBtnColor;
+}
+
 /////////////////FILTERS
 
-function filerArk(event) {
-  console.log(event.target.firstChild.data);
+function filterProjects(event) {
+  //current filter name
   let currentFilter = event.target.firstChild.data;
-  console.log(currentFilter);
+
+  //filter each projeect based on category
   let arqF = sortedarr.filter(project => project.category === currentFilter);
+
+  //empty project sections to only apppear filter projects
   document.querySelector("#p2018").innerHTML = "";
   document.querySelector("#p2017").innerHTML = "";
   document.querySelector("#p2016").innerHTML = "";
@@ -300,32 +342,102 @@ function filerArk(event) {
   document.querySelector("#p2010").innerHTML = "";
   document.querySelector("#p2009").innerHTML = "";
   document.querySelector("#p2008").innerHTML = "";
-  let projectSections = document.querySelectorAll(".project-grid");
-  console.log(projectSections);
 
+  //variables of project section an year
+  let projectSections = document.querySelectorAll(".project-grid");
   let yearlist = document.querySelectorAll(".year-dot");
 
   if (currentFilter === "All") {
+    //display all projects
     sortedarr.forEach(displayP2018);
     yearlist.forEach(year => year.classList.remove("hide"));
   } else {
-    //console.log(projectS.childNodes.length);
+    //display filtered projects
     arqF.forEach(displayP2018);
+
+    //if dont have child take year
     projectSections.forEach(projectS => {
-      // const article = document.querySelector(".project-box");
-      // console.log(projectS.contains(article));
       if (projectS.childNodes.length === 0) {
         projectS.previousElementSibling.classList.add("hide");
       } else {
         projectS.previousElementSibling.classList.remove("hide");
       }
-      /*
-      if (projectS.childNodes.length === 0) {
-        yearlist.forEach(year => year.classList.add("hide"));
-      } else {
-        yearlist.forEach(year => year.classList.remove("hide"));
-      }*/
     });
+  }
+}
+
+//funtion to hover nav
+function navCliked(event) {
+  console.log(this.getAttribute("id"));
+  //
+  if (this.getAttribute("id") === "contacttag") {
+    //spans
+    document.querySelector("#contacttag span").classList.add("tagColorBlack");
+    document.querySelector("#abouttag span").classList.remove("tagColorBlack");
+    document.querySelector("#worktag span").classList.remove("tagColorBlack");
+    document.querySelector("#hometag span").classList.remove("tagColorBlack");
+    //svgs
+    document.querySelector("#hometag svg .a").classList.remove("colorBlack");
+    document.querySelector("#worktag svg .b").classList.remove("colorBlack");
+    document.querySelector("#worktag svg .e").classList.remove("colorBlack");
+    document.querySelector("#worktag svg .c").classList.remove("strokeBlack");
+    document.querySelector("#abouttag svg .e").classList.remove("colorBlack");
+    document.querySelector("#abouttag svg .a").classList.remove("colorBlack");
+    document.querySelector("#contacttag svg .e").classList.add("colorBlack");
+
+    //
+  } else if (this.getAttribute("id") === "abouttag") {
+    //spans
+    document
+      .querySelector("#contacttag span")
+      .classList.remove("tagColorBlack");
+    document.querySelector("#abouttag span").classList.add("tagColorBlack");
+    document.querySelector("#worktag span").classList.remove("tagColorBlack");
+    document.querySelector("#hometag span").classList.remove("tagColorBlack");
+    //svgs
+    document.querySelector("#hometag svg .a").classList.remove("colorBlack");
+    document.querySelector("#worktag svg .b").classList.remove("colorBlack");
+    document.querySelector("#worktag svg .e").classList.remove("colorBlack");
+    document.querySelector("#worktag svg .c").classList.remove("strokeBlack");
+    document.querySelector("#abouttag svg .e").classList.add("colorBlack");
+    document.querySelector("#abouttag svg .a").classList.add("colorBlack");
+    document.querySelector("#contacttag svg .e").classList.remove("colorBlack");
+
+    //
+  } else if (this.getAttribute("id") === "worktag") {
+    //spans
+    document
+      .querySelector("#contacttag span")
+      .classList.remove("tagColorBlack");
+    document.querySelector("#abouttag span").classList.remove("tagColorBlack");
+    document.querySelector("#worktag span").classList.add("tagColorBlack");
+    document.querySelector("#hometag span").classList.remove("tagColorBlack");
+    //svgs
+    document.querySelector("#hometag svg .a").classList.remove("colorBlack");
+    document.querySelector("#worktag svg .b").classList.add("colorBlack");
+    document.querySelector("#worktag svg .e").classList.add("colorBlack");
+    document.querySelector("#worktag svg .c").classList.add("strokeBlack");
+    document.querySelector("#abouttag svg .e").classList.remove("colorBlack");
+    document.querySelector("#abouttag svg .a").classList.remove("colorBlack");
+    document.querySelector("#contacttag svg .e").classList.remove("colorBlack");
+
+    //
+  } else if (this.getAttribute("id") === "hometag") {
+    //spans
+    document
+      .querySelector("#contacttag span")
+      .classList.remove("tagColorBlack");
+    document.querySelector("#abouttag span").classList.remove("tagColorBlack");
+    document.querySelector("#worktag span").classList.remove("tagColorBlack");
+    document.querySelector("#hometag span").classList.add("tagColorBlack");
+    //svgs
+    document.querySelector("#hometag svg .a").classList.add("colorBlack");
+    document.querySelector("#worktag svg .b").classList.remove("colorBlack");
+    document.querySelector("#worktag svg .e").classList.remove("colorBlack");
+    document.querySelector("#worktag svg .c").classList.remove("strokeBlack");
+    document.querySelector("#abouttag svg .e").classList.remove("colorBlack");
+    document.querySelector("#abouttag svg .a").classList.remove("colorBlack");
+    document.querySelector("#contacttag svg .e").classList.remove("colorBlack");
   }
 }
 

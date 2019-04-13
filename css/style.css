@@ -144,6 +144,7 @@ table {
   /* Typefaces */
   --display-font: "Poiret One", cursive;
   --text-font: "Raleway", sans-serif;
+  --font-size-text14: 14px;
   --font-size-text12: 12px;
   --font-size-title30: 30px;
   --font-size-text1: 16px;
@@ -190,6 +191,17 @@ h2 {
 strong {
   font-weight: 900;
   color: var(--color-darkgrey);
+}
+/* classes for icon clicked */
+.tagColorBlack {
+  color: var(--color-black) !important;
+  transition: 1s;
+}
+.colorBlack {
+  fill: var(--color-black) !important;
+}
+.strokeBlack {
+  stroke: var(--color-black) !important;
 }
 
 /***************** GRID *******************/
@@ -390,7 +402,7 @@ aside i {
   color: var(--color-wine);
 }
 .project-info p {
-  font-size: var(--font-size-small10);
+  font-size: var(--font-size-text14);
 }
 /*********PROJECT INFO ANIMATION**************/
 [data-anime] {
@@ -761,6 +773,117 @@ footer {
   fill: none;
 }
 
+/**************project detail page****************/
+.project-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "project";
+
+  grid-template-columns: auto;
+}
+.project-container header {
+  grid-area: header;
+}
+
+.project-container #project {
+  grid-area: project;
+  margin-top: 40px;
+}
+.project-container #menu {
+  position: fixed;
+}
+.project-container #project .lines {
+  /* margin-top: -10vh; */
+}
+.margin-h2-proj {
+  margin-top: -2vh;
+  z-index: 101 !important;
+}
+
+#project .project-detail {
+  display: grid;
+  grid-template: auto 1fr/50px auto;
+  padding-left: 20px;
+}
+#project .project-detail .project-photo {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  width: 100px;
+}
+
+/************Project DETAIL DESKTOP*********/
+#project .project-detail #project-info {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  background-color: var(--color-grey);
+  padding: 3vh 4vw 30vh 20vw;
+  z-index: -1;
+  display: grid;
+  grid-template: 90px 30px 40px 150px 50px auto auto / auto;
+  height: 100%;
+  border-left: solid 1px var(--color-darkgrey);
+  grid-column-gap: 0px;
+}
+#project .project-detail #project-info h2 {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  text-align: left;
+  font-size: var(--font-size-subtitle25);
+  align-self: center;
+  color: var(--color-wine);
+}
+#project .project-detail #project-info h4 {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  font-size: var(--font-size-subtitle18);
+}
+#project .project-detail #project-info h3 {
+  grid-column: 1/2;
+  grid-row: 3/4;
+  font-size: var(--font-size-text1);
+  color: var(--color-pink);
+}
+#project .project-detail #project-info .text-project {
+  grid-column: 1/2;
+  grid-row: 6/7;
+  font-family: var(--text-font);
+  font-size: var(--font-size-text14);
+  line-height: 1.5;
+}
+#project .project-detail #project-info .role-detail {
+  grid-column: 1/2;
+  grid-row: 7/8;
+  font-family: var(--text-font);
+  font-size: var(--font-size-text1);
+  padding-top: 20px;
+}
+#project .project-detail #project-info .galery-container {
+  grid-column: 1/2;
+  grid-row: 4/5;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #747474;
+}
+#project .project-detail #project-info .link {
+  grid-column: 1/2;
+  grid-row: 5/6;
+  align-self: center;
+}
+#project .project-detail #project-info .link a {
+  text-decoration: none;
+  color: var(--color-pink);
+  font-weight: 600;
+  font-size: var(--font-size-subtitle);
+}
+#project .project-detail #project-info .link a i {
+  padding-right: 10px;
+}
+.project-container footer {
+  grid-area: footer;
+  display: none;
+}
+
 /*********DESKTOP STYLE**************/
 @media only screen and (min-width: 768px) {
   /*********GLOBAL SELECTORS DESKTOP**************/
@@ -852,6 +975,9 @@ footer {
     align-items: flex-start;
     padding-top: 10px;
   }
+  nav a:hover {
+    transform: scale(1.2);
+  }
   #menu nav a svg {
     width: 16px;
   }
@@ -939,6 +1065,11 @@ footer {
     border-radius: 20% 20%;
     width: 100%;
   }
+  #work #filters button:focus {
+    border-bottom: solid 2px var(--color-greylight);
+    border-radius: 20% 20%;
+    width: 100%;
+  }
 
   /*********PROJECTS YEAR DESKTOP**************/
   #work .year-dot {
@@ -1009,12 +1140,14 @@ footer {
     margin-top: 40px;
   }
   .project-info p {
+    padding-top: 5px;
     font-size: var(--font-size-text1);
   }
   .project-info .role {
     font-family: var(--text-font);
     font-size: var(--font-size-text1);
     padding-top: 10px;
+    color: var(--color-darkgrey);
   }
   .project-info .role p {
     font-size: var(--font-size-text12);
@@ -1428,7 +1561,7 @@ footer {
   }
   .project-container #project {
     grid-area: project;
-    height: 80vh;
+    /* height: 80vh; */
   }
   .project-container #project .lines {
     margin-top: -15vh;
@@ -1458,7 +1591,7 @@ footer {
     z-index: -1;
     display: grid;
     grid-template: 40px 30px 40px repeat(2, auto) / 1fr 1fr auto;
-    height: 60vh;
+    /* height: 60vh; */
     border-left: solid 1px var(--color-darkgrey);
     grid-column-gap: 10px;
   }
@@ -1517,11 +1650,12 @@ footer {
   }
   .project-container footer {
     grid-area: footer;
+    display: block;
     background-color: transparent;
     background-size: 100%;
     background-position: bottom;
   }
   .project-container footer p {
-    padding-top: 60px;
+    padding-top: 70px;
   }
 }
