@@ -1,4 +1,5 @@
 "use strict";
+
 //arrays
 let projectsarr;
 let sortedarr;
@@ -71,7 +72,7 @@ function init() {
 
 // funtion to get restdb projects
 function get() {
-  fetch("https://restju-f026.restdb.io/rest/portfolioprojects", {
+  fetch(baseLink, {
     method: "get",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
@@ -128,9 +129,11 @@ function displayP2018(project) {
       target.classList.remove("animate");
     }
   }
+  console.log(project._id);
 
   //project link
-  copy.querySelector(".projectlink").href = project.link;
+  copy.querySelector(".projectlink").href =
+    "project.html?projectid=" + project._id;
   //project title
   copy.querySelector("h2").textContent = project.title;
   //project place
@@ -192,7 +195,7 @@ window.addEventListener("resize", resize);
 
 //Event fixed bar appear in desktop
 window.addEventListener("resize", sizheader);
-
+sizheader();
 function sizheader() {
   if (window.matchMedia("(max-width: 700px)").matches) {
   } else {
