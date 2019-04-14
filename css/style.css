@@ -892,7 +892,8 @@ footer {
   font-size: var(--font-size-subtitle);
 }
 #project .project-detail #project-info .link a i {
-  padding-right: 10px;
+  padding-left: 10px;
+  font-size: var(--font-size-subtitle18);
 }
 
 /*********DESKTOP STYLE**************/
