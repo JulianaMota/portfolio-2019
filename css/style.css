@@ -1604,7 +1604,7 @@ footer {
     grid-template: auto auto auto repeat(2, auto) / 1fr 1fr;
     border-left: solid 1px var(--color-darkgrey);
     grid-column-gap: 30px;
-    grid-row-gap: 30px;
+    grid-row-gap: 20px;
   }
   #project .project-detail #project-info h2 {
     grid-column: 1/4;

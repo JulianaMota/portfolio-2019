@@ -63,8 +63,11 @@ function displayOneProject(data) {
       "?key=5c9667bddf5d634f46ecae24";
   }
 
-  console.log();
-  copy.querySelector(".link a").href = data.link;
+  if (data.link === "") {
+    copy.querySelector(".link").classList.add("hide");
+  } else {
+    copy.querySelector(".link a").href = data.link;
+  }
 
   document.querySelector("#each-project").appendChild(copy);
 }
