@@ -33,6 +33,7 @@ function getOneProject(projectID) {
   })
     .then(res => res.json())
     .then(displayOneProject);
+  sizheader();
 }
 
 function displayOneProject(data) {
@@ -70,7 +71,7 @@ function displayOneProject(data) {
 
 //Event fixed bar appear in desktop
 window.addEventListener("resize", sizheader);
-sizheader();
+
 function sizheader() {
   if (window.matchMedia("(max-width: 700px)").matches) {
   } else {
@@ -80,10 +81,7 @@ function sizheader() {
 
 function headerFixed() {
   //if Statment if page scroll 100
-  if (
-    document.body.scrollTop > 100 ||
-    document.documentElement.scrollTop > 100
-  ) {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     //fixed bar apppears
     fixedBack.style.top = "0%";
     fixedBack.style.opacity = 0.7;

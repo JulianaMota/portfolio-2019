@@ -1560,7 +1560,7 @@ footer {
   }
   .project-container header {
     grid-area: header;
-    height: 14vh;
+    /* height: 14vh; */
   }
   .project-container #menu {
     grid-area: nav;
@@ -1601,7 +1601,7 @@ footer {
     padding: 10vh 90px 10vh 100px;
     z-index: 1;
     display: grid;
-    grid-template: auto auto auto repeat(2, auto) / 2fr 1fr;
+    grid-template: auto auto auto repeat(2, auto) / 1fr 1fr;
     border-left: solid 1px var(--color-darkgrey);
     grid-column-gap: 30px;
     grid-row-gap: 30px;
