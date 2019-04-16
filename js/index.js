@@ -410,6 +410,10 @@ function navCliked(event) {
     document.querySelector("#abouttag svg .a").classList.remove("colorBlack");
     document.querySelector("#contacttag svg .e").classList.add("colorBlack");
 
+    document.querySelector("#contacttag svg .e").classList.add("strokeBlack");
+    document.querySelector("#abouttag svg .e").classList.remove("strokeBlack");
+    document.querySelector("#worktag svg .e").classList.remove("strokeBlack");
+    document.querySelector("#worktag svg .b").classList.remove("strokeBlack");
     //
   } else if (this.getAttribute("id") === "abouttag") {
     //spans
@@ -427,6 +431,13 @@ function navCliked(event) {
     document.querySelector("#abouttag svg .e").classList.add("colorBlack");
     document.querySelector("#abouttag svg .a").classList.add("colorBlack");
     document.querySelector("#contacttag svg .e").classList.remove("colorBlack");
+
+    document
+      .querySelector("#contacttag svg .e")
+      .classList.remove("strokeBlack");
+    document.querySelector("#abouttag svg .e").classList.add("strokeBlack");
+    document.querySelector("#worktag svg .e").classList.remove("strokeBlack");
+    document.querySelector("#worktag svg .b").classList.remove("strokeBlack");
 
     //
   } else if (this.getAttribute("id") === "worktag") {
@@ -446,6 +457,13 @@ function navCliked(event) {
     document.querySelector("#abouttag svg .a").classList.remove("colorBlack");
     document.querySelector("#contacttag svg .e").classList.remove("colorBlack");
 
+    document
+      .querySelector("#contacttag svg .e")
+      .classList.remove("strokeBlack");
+    document.querySelector("#abouttag svg .e").classList.remove("strokeBlack");
+    document.querySelector("#worktag svg .e").classList.add("strokeBlack");
+    document.querySelector("#worktag svg .b").classList.add("strokeBlack");
+
     //
   } else if (this.getAttribute("id") === "hometag") {
     //spans
@@ -463,6 +481,13 @@ function navCliked(event) {
     document.querySelector("#abouttag svg .e").classList.remove("colorBlack");
     document.querySelector("#abouttag svg .a").classList.remove("colorBlack");
     document.querySelector("#contacttag svg .e").classList.remove("colorBlack");
+
+    document
+      .querySelector("#contacttag svg .e")
+      .classList.remove("strokeBlack");
+    document.querySelector("#abouttag svg .e").classList.remove("strokeBlack");
+    document.querySelector("#worktag svg .e").classList.remove("strokeBlack");
+    document.querySelector("#worktag svg .b").classList.remove("strokeBlack");
   }
 }
 
