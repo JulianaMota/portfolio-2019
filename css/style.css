@@ -199,9 +199,11 @@ strong {
 }
 .colorBlack {
   fill: var(--color-black) !important;
+  transition: 1s;
 }
 .strokeBlack {
   stroke: var(--color-black) !important;
+  transition: 1s;
 }
 
 /***************** GRID *******************/
@@ -385,6 +387,12 @@ nav a:hover {
   display: grid;
   grid-template: 1fr/ 50px 2fr;
 }
+.project-box .projectlink {
+  z-index: 2;
+}
+.project-box .projectlink2 {
+  text-decoration: none;
+}
 .project-img {
   grid-column: 1/2;
   grid-row: 1/2;
@@ -393,7 +401,7 @@ nav a:hover {
 .project-info {
   grid-column: 2/3;
   grid-row: 1/2;
-  z-index: -1;
+  z-index: 1;
   background-color: var(--color-grey);
   padding: 0 20px 0 70px;
 }
@@ -465,13 +473,17 @@ nav a:hover {
   height: 300px;
 }
 #about .about-menu .about-btn button {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: solid 1px var(--color-darkgrey);
   background-color: var(--color-white);
   text-align: center;
   box-shadow: 2px 2px 8px 1px var(--color-darkgrey);
+  outline: none;
+}
+#about .about-menu .about-btn button i {
+  font-size: 18px;
 }
 .vl2 {
   border-left: solid 1px var(--color-darkgrey);
@@ -796,6 +808,7 @@ footer {
 }
 .project-container #menu {
   position: fixed;
+  bottom: 0;
 }
 .margin-h2-proj {
   margin-top: -2vh;
@@ -1040,6 +1053,9 @@ footer {
     font-size: 15px;
     padding: 7px;
   }
+  aside i:hover {
+    color: var(--color-black);
+  }
 
   /*********HOME DESKTOP**************/
   .parallax {
@@ -1147,6 +1163,10 @@ footer {
     margin-bottom: 7px;
     font-size: var(--font-size-subtitle25);
     margin-top: 40px;
+  }
+  .project-info .projectlink2 {
+    text-decoration: none;
+    cursor: pointer;
   }
   .project-info p {
     padding-top: 5px;
@@ -1546,6 +1566,20 @@ footer {
     top: 0;
     right: 10%;
     height: 10%;
+    transition: 1s;
+  }
+
+  /* classes for icon clicked */
+  .tagColorBlack {
+    color: var(--color-black) !important;
+    transition: 1s;
+  }
+  .colorBlack {
+    fill: var(--color-black) !important;
+    transition: 1s;
+  }
+  .strokeBlack {
+    stroke: var(--color-black) !important;
     transition: 1s;
   }
 

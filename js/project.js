@@ -2,7 +2,7 @@ let projectID = param.get("projectid");
 
 // fixed bar variavles
 const fixedBack = document.querySelector(".header-back");
-const nav = document.querySelector("#menu");
+const nav = document.querySelector(".project-container #menu");
 const logo = document.querySelector("#moveheader");
 const aNav = document.querySelectorAll(".atag");
 const jmoLogo = document.querySelectorAll(".jmologo");
@@ -20,6 +20,7 @@ window.addEventListener("DOMContentLoaded", init);
 
 function init() {
   getOneProject(projectID);
+  sizheader();
 }
 
 function getOneProject(projectID) {
@@ -33,7 +34,6 @@ function getOneProject(projectID) {
   })
     .then(res => res.json())
     .then(displayOneProject);
-  sizheader();
 }
 
 function displayOneProject(data) {
@@ -84,7 +84,7 @@ function sizheader() {
 
 function headerFixed() {
   //if Statment if page scroll 100
-  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+  if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
     //fixed bar apppears
     fixedBack.style.top = "0%";
     fixedBack.style.opacity = 0.7;

@@ -114,25 +114,28 @@ function displayP2018(project) {
     project.image +
     "?key=5c9667bddf5d634f46ecae24";
 
-  const target = copy.querySelector("[data-anime]");
-  // console.log(target);
-  window.addEventListener("scroll", () => {
-    animateScroll();
-  });
-  function animateScroll() {
-    const windowTop = window.pageYOffset + (window.innerHeight * 3) / 4;
-    if (windowTop > target.offsetTop) {
-      // console.log("in");
-      target.classList.add("animate");
-    } else {
-      // console.log("out");
-      target.classList.remove("animate");
-    }
-  }
+  // const target = copy.querySelector("[data-anime]");
+  // // console.log(target);
+  // window.addEventListener("scroll", () => {
+  //   animateScroll();
+  // });
+  // function animateScroll() {
+  //   const windowTop = window.pageYOffset + (window.innerHeight * 3) / 4;
+  //   if (windowTop > target.offsetTop) {
+  //     // console.log("in");
+  //     target.classList.add("animate");
+  //   } else {
+  //     // console.log("out");
+  //     target.classList.remove("animate");
+  //   }
+  // }
   console.log(project._id);
 
   //project link
   copy.querySelector(".projectlink").href =
+    "project.html?projectid=" + project._id;
+  //project link
+  copy.querySelector(".projectlink2").href =
     "project.html?projectid=" + project._id;
   //project title
   copy.querySelector("h2").textContent = project.title;
@@ -175,6 +178,25 @@ function displayP2018(project) {
   if (project.year == "2008") {
     document.querySelector("#p2008").appendChild(copy);
   }
+}
+
+window.addEventListener("scroll", () => {
+  animateScroll();
+});
+function animateScroll() {
+  const target = document.querySelectorAll("[data-anime]");
+
+  target.forEach(t => {
+    console.log(target);
+    const windowTop = window.pageYOffset - (window.innerHeight * 3) / 4;
+    console.log(window.innerHeight);
+    console.log(window.pageYOffset);
+    if (windowTop > t.offsetTop) {
+      t.classList.add("animate");
+    } else {
+      t.classList.remove("animate");
+    }
+  });
 }
 
 //Event Resize projects diferent when resize page
