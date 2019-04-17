@@ -215,6 +215,7 @@ strong {
     "work"
     "about"
     "contacts"
+    "footer"
     "nav";
   grid-template-columns: 1fr;
 }
@@ -270,7 +271,7 @@ header h2 {
   font-family: var(--display-font);
   font-size: var(--font-size-subtitle);
   background-color: var(--color-white);
-  padding: 1vh 25px 5px 50px;
+  padding: 5px 25px 5px 25px;
   margin: -10px 0 30px 0;
 }
 /*********ASIDE**************/
@@ -485,12 +486,13 @@ nav a:hover {
 }
 #about .about-menu .about-btn button i {
   font-size: 18px;
+  text-align: center;
 }
 .vl2 {
   border-left: solid 1px var(--color-darkgrey);
   position: absolute;
   left: 50px;
-  height: 100%;
+  height: 110%;
   z-index: -2;
 }
 /************ABOUT DETAIL *********/
@@ -652,7 +654,7 @@ nav a:hover {
 #contact {
   grid-area: contacts;
   background-color: var(--color-grey);
-  padding-bottom: 30%;
+  padding-bottom: 10%;
 }
 #contact div {
   display: grid;
@@ -770,8 +772,22 @@ textarea:valid {
 
 /*********ABOUT**************/
 footer {
-  grid-area: nav;
-  display: none;
+  grid-area: footer;
+  display: block;
+  background-color: var(--color-grey);
+  font-size: var(--font-size-small10);
+  padding: 0 20px 25% 20px;
+}
+footer p,
+footer div {
+  color: var(--color-darkgrey);
+  text-align: center;
+  padding-top: 5px;
+  font-weight: 600;
+}
+footer div a {
+  text-decoration: none;
+  color: var(--color-wine);
 }
 /*********LOGOS NAV**************/
 .a,
@@ -1208,6 +1224,7 @@ footer {
     padding-left: 60px;
     margin-top: 30px;
   }
+
   #about .about-menu .photo-ju {
     grid-column: 1/2;
     grid-row: 1/2;
@@ -1221,9 +1238,13 @@ footer {
     height: 200px;
   }
   #about .about-menu .about-btn button {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     outline: none;
+  }
+  #about .about-menu .about-btn button i {
+    font-size: 18px;
+    text-align: center;
   }
   #about .about-menu .about-btn button:hover {
     transform: scale(1.2);
@@ -1526,6 +1547,7 @@ footer {
     display: grid;
     grid-template: 20px auto / auto;
     justify-content: center;
+    padding: 0 0px 0% 0px;
   }
 
   footer p,
