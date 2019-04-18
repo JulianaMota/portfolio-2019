@@ -1131,14 +1131,9 @@ footer div a {
   }
   .projects {
     position: relative;
-    /* display: grid; */
   }
   .vl {
-    /* position: relative; */
     left: 52vw;
-    /* grid-column: 1/-1;
-    grid-row: 1/-1;
-    height: 200px; */
   }
 
   /*********EACH PROJEC DESKTOPT**************/
@@ -1570,7 +1565,7 @@ footer div a {
     background-image: url(../images/fixed-nav-dark_3716x552.png);
     height: 30%;
     width: 100%;
-    background-size: contain;
+    background-size: 100%;
     background-repeat: no-repeat;
     opacity: 0;
     z-index: 10;
