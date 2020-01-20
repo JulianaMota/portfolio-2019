@@ -27,7 +27,6 @@ const logo = document.querySelector("#moveheader");
 const aNav = document.querySelectorAll(".atag");
 const jmoLogo = document.querySelectorAll(".jmologo");
 const navATag = document.querySelectorAll("nav a");
-console.log(navATag);
 
 //svg icons variables
 const a = document.querySelectorAll(".a");
@@ -103,7 +102,7 @@ function projectssorted(a, b) {
   }
 }
 
-// funtion to dislply each project using template
+// funtion to display each project using template
 function displayP2018(project) {
   const copy = document.querySelector("template").content.cloneNode(true);
 
@@ -113,23 +112,6 @@ function displayP2018(project) {
     "https://restju-f026.restdb.io/media/" +
     project.image +
     "?key=5c9667bddf5d634f46ecae24";
-
-  // const target = copy.querySelector("[data-anime]");
-  // // console.log(target);
-  // window.addEventListener("scroll", () => {
-  //   animateScroll();
-  // });
-  // function animateScroll() {
-  //   const windowTop = window.pageYOffset + (window.innerHeight * 3) / 4;
-  //   if (windowTop > target.offsetTop) {
-  //     // console.log("in");
-  //     target.classList.add("animate");
-  //   } else {
-  //     // console.log("out");
-  //     target.classList.remove("animate");
-  //   }
-  // }
-  console.log(project._id);
 
   //project link
   copy.querySelector(".projectlink").href =
@@ -145,6 +127,9 @@ function displayP2018(project) {
   copy.querySelector(".role p").textContent = project.role;
 
   // append child in each section
+  if (project.year == "2019") {
+    document.querySelector("#p2019").appendChild(copy);
+  }
   if (project.year == "2018") {
     document.querySelector("#p2018").appendChild(copy);
   }
@@ -187,10 +172,7 @@ function animateScroll() {
   const target = document.querySelectorAll("[data-anime]");
 
   target.forEach(t => {
-    console.log(target);
     const windowTop = window.pageYOffset - (window.innerHeight * 3) / 4;
-    console.log(window.innerHeight);
-    console.log(window.pageYOffset);
     if (windowTop > t.offsetTop) {
       t.classList.add("animate");
     } else {
@@ -203,10 +185,8 @@ function animateScroll() {
 function resize() {
   const roles = document.querySelectorAll(".role");
   if (window.matchMedia("(max-width: 700px)").matches) {
-    // console.log("less");
     roles.forEach(r => (r.style.display = "none"));
   } else {
-    console.log("more");
     roles.forEach(r => {
       r.querySelector("p").text;
       r.style.display = "block";
@@ -356,6 +336,7 @@ function filterProjects(event) {
   let arqF = sortedarr.filter(project => project.category === currentFilter);
 
   //empty project sections to only apppear filter projects
+  document.querySelector("#p2019").innerHTML = "";
   document.querySelector("#p2018").innerHTML = "";
   document.querySelector("#p2017").innerHTML = "";
   document.querySelector("#p2016").innerHTML = "";
@@ -393,8 +374,6 @@ function filterProjects(event) {
 
 //funtion to hover nav
 function navCliked(event) {
-  console.log(this.getAttribute("id"));
-  //
   if (this.getAttribute("id") === "contacttag") {
     //spans
     document.querySelector("#contacttag span").classList.add("tagColorBlack");
@@ -490,10 +469,3 @@ function navCliked(event) {
     document.querySelector("#worktag svg .b").classList.remove("strokeBlack");
   }
 }
-
-// const projectlink = document.querySelectorAll(".projectlink");
-// console.log(projectlink);
-// projectlink.addEventListener("mouseover", () => {
-//   console.log(e);
-//   //   document.querySelector("[data-anime=hide]").classList.add("animate");
-// });
