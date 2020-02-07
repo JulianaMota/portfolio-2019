@@ -1364,6 +1364,7 @@ footer div a {
     grid-column: 2/3;
     grid-row: 1/2;
     display: flex;
+    align-items: center;
   }
   #education-article section div.schoolYear,
   #experience-article section p {
@@ -1378,6 +1379,9 @@ footer div a {
     display: block;
     font-size: var(--font-size-text1);
     line-height: 1.3;
+  }
+  #education-article section div .school {
+    padding-left: 20px;
   }
   /*********ARTICLE EXPERIENCE DESKTOP**************/
   #experience-article {
