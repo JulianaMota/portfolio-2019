@@ -72,62 +72,62 @@ function displayOneProject(data) {
   document.querySelector("#each-project").appendChild(copy);
 }
 
-//Event fixed bar appear in desktop
-window.addEventListener("resize", sizheader);
+// //Event fixed bar appear in desktop
+// window.addEventListener("resize", sizheader);
 
-function sizheader() {
-  if (window.matchMedia("(max-width: 700px)").matches) {
-  } else {
-    window.addEventListener("scroll", headerFixed);
-  }
-}
+// function sizheader() {
+//   if (window.matchMedia("(max-width: 700px)").matches) {
+//   } else {
+//     window.addEventListener("scroll", headerFixed);
+//   }
+// }
 
-function headerFixed() {
-  //if Statment if page scroll 100
-  if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-    //fixed bar apppears
-    fixedBack.style.top = "0%";
-    fixedBack.style.opacity = 0.7;
+// function headerFixed() {
+//   //if Statment if page scroll 100
+//   if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+//     //fixed bar apppears
+//     fixedBack.style.top = "0%";
+//     fixedBack.style.opacity = 0.7;
 
-    //logo turns white
-    jmoLogo.forEach(l => l.classList.add("colorWhite"));
+//     //logo turns white
+//     jmoLogo.forEach(l => l.classList.add("colorWhite"));
 
-    //nav span turns white
-    aNav.forEach(aName => aName.classList.add("tagColorWhite"));
+//     //nav span turns white
+//     aNav.forEach(aName => aName.classList.add("tagColorWhite"));
 
-    //svg logo turns white
-    e.forEach(e => e.classList.add("colorWhite"));
-    a.forEach(a => a.classList.add("colorWhite"));
-    b.forEach(b => b.classList.add("colorWhite"));
-    b.forEach(b => b.classList.add("strokeWhite"));
-    c.forEach(c => c.classList.add("strokeWhite"));
-    e.forEach(e => e.classList.add("strokeWhite"));
+//     //svg logo turns white
+//     e.forEach(e => e.classList.add("colorWhite"));
+//     a.forEach(a => a.classList.add("colorWhite"));
+//     b.forEach(b => b.classList.add("colorWhite"));
+//     b.forEach(b => b.classList.add("strokeWhite"));
+//     c.forEach(c => c.classList.add("strokeWhite"));
+//     e.forEach(e => e.classList.add("strokeWhite"));
 
-    //animte classes to fix logo and nav
-    document.querySelector("[data-animeH=fixedlogo]").classList.add("animateH");
-    document.querySelector("[data-animeH=fixednav]").classList.add("animateN");
-    nav.style.position = "fixed";
-  } else {
-    //fixed bar goes back to top
-    fixedBack.style.top = "-100%";
+//     //animte classes to fix logo and nav
+//     document.querySelector("[data-animeH=fixedlogo]").classList.add("animateH");
+//     document.querySelector("[data-animeH=fixednav]").classList.add("animateN");
+//     nav.style.position = "fixed";
+//   } else {
+//     //fixed bar goes back to top
+//     fixedBack.style.top = "-100%";
 
-    //remove animate classes to fix the logo and nav
-    document
-      .querySelector("[data-animeH=fixedlogo]")
-      .classList.remove("animateH");
-    document
-      .querySelector("[data-animeH=fixednav]")
-      .classList.remove("animateN");
-    nav.style.position = "relative";
+//     //remove animate classes to fix the logo and nav
+//     document
+//       .querySelector("[data-animeH=fixedlogo]")
+//       .classList.remove("animateH");
+//     document
+//       .querySelector("[data-animeH=fixednav]")
+//       .classList.remove("animateN");
+//     nav.style.position = "relative";
 
-    //take color white from the nav icons, names and jmo logo
-    e.forEach(e => e.classList.remove("colorWhite"));
-    a.forEach(a => a.classList.remove("colorWhite"));
-    b.forEach(b => b.classList.remove("colorWhite"));
-    b.forEach(b => b.classList.remove("strokeWhite"));
-    c.forEach(c => c.classList.remove("strokeWhite"));
-    e.forEach(e => e.classList.remove("strokeWhite"));
-    jmoLogo.forEach(l => l.classList.remove("colorWhite"));
-    aNav.forEach(aName => aName.classList.remove("tagColorWhite"));
-  }
-}
+//     //take color white from the nav icons, names and jmo logo
+//     e.forEach(e => e.classList.remove("colorWhite"));
+//     a.forEach(a => a.classList.remove("colorWhite"));
+//     b.forEach(b => b.classList.remove("colorWhite"));
+//     b.forEach(b => b.classList.remove("strokeWhite"));
+//     c.forEach(c => c.classList.remove("strokeWhite"));
+//     e.forEach(e => e.classList.remove("strokeWhite"));
+//     jmoLogo.forEach(l => l.classList.remove("colorWhite"));
+//     aNav.forEach(aName => aName.classList.remove("tagColorWhite"));
+//   }
+// }
