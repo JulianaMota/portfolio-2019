@@ -461,6 +461,7 @@ nav a:hover {
   grid-column: 1/2;
   grid-row: 1/2;
   width: 100px;
+  z-index: 1;
 }
 #about .about-menu .about-btn {
   grid-column: 1/2;
@@ -483,6 +484,7 @@ nav a:hover {
   text-align: center;
   box-shadow: 2px 2px 8px 1px var(--color-darkgrey);
   outline: none;
+  z-index: 1;
 }
 #about .about-menu .about-btn button i {
   font-size: 18px;
@@ -493,11 +495,10 @@ nav a:hover {
   position: absolute;
   left: 50px;
   height: 110%;
-  z-index: -2;
 }
 /************ABOUT DETAIL *********/
 #about .about-menu .detail-about {
-  z-index: -3;
+  /* z-index: -3; */
   grid-column: 2/3;
   grid-row: 1/3;
   min-height: 500px;
@@ -582,19 +583,42 @@ nav a:hover {
 /*********ARTICLE EXPERIENCE**************/
 #experience-article {
   display: grid;
-  grid-template: auto auto auto/ 1fr;
+  grid-template: 1fr 3fr/ 1fr;
   grid-row-gap: 20px;
   margin-bottom: 20px;
 }
-#experience-article section div #core {
+#experience-article .swiper-container {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  width: 100%;
+}
+#experience-article .swiper-wrapper {
+  width: 100%;
+}
+#experience-article .swiper-slide {
+  display: flex;
+  align-items: center;
+}
+#experience-article .swiper-button-prev::after,
+#experience-article .swiper-button-next::after {
+  display: none;
+}
+#experience-article .swiper-pagination-bullet-active {
+  background-color: var(--color-pink);
+}
+#experience-article .swiper-pagination-bullet {
+  height: 7px;
+  width: 7px;
+}
+#experience-article section div .size1 {
   width: 60px;
 }
-#experience-article section div #primus {
+#experience-article section div .size2 {
   width: 80px;
 }
 #experience-article section div .exp-name,
 #experience-article section .projects-exp {
-  display: none;
+  /* display: none; */
 }
 /*********ARTICLE SOFTWARE**************/
 #software-article {
@@ -1260,6 +1284,7 @@ footer div a {
     width: 35px;
     height: 35px;
     outline: none;
+    cursor: pointer;
   }
   #about .about-menu .about-btn button i {
     font-size: 18px;
@@ -1271,7 +1296,6 @@ footer div a {
   .vl2 {
     left: 73px;
     height: 100%;
-    z-index: -2;
   }
   /************ABOUT DETAIL DESKTOP*********/
   #about .about-menu .detail-about {
@@ -1386,21 +1410,43 @@ footer div a {
   /*********ARTICLE EXPERIENCE DESKTOP**************/
   #experience-article {
     display: grid;
-    grid-template: 100px auto auto/ 1fr;
-    grid-row-gap: 20px;
+    grid-template: 100px 1fr / 1fr;
+    grid-row-gap: 0;
     margin-bottom: 20px;
   }
-  #experience-article #core-section {
+  #experience-article .swiper-container {
     grid-row: 2/3;
     grid-column: 1/2;
+    width: 100%;
   }
-  #experience-article #primus-section {
-    grid-row: 3/4;
-    grid-column: 1/2;
+  #experience-article .swiper-wrapper {
+    width: 100%;
   }
+  #experience-article .swiper-slide {
+    display: flex;
+    align-items: center;
+  }
+  #experience-article .swiper-button-prev::after,
+  #experience-article .swiper-button-next::after {
+    display: block;
+    font-size: 35px;
+    color: var(--color-pink);
+  }
+  #experience-article .swiper-pagination-bullet-active {
+    background-color: var(--color-pink);
+  }
+  #experience-article .swiper-pagination-bullet {
+    height: 7px;
+    width: 7px;
+  }
+
   #experience-article .exp-grid {
+    width: 70%;
+    margin: auto;
     display: grid;
     grid-template: 30px 30% auto / 1fr 4fr;
+    row-gap: 5%;
+    column-gap: 4%;
   }
   #experience-article .exp-grid .exp-title {
     grid-column: 1/2;
@@ -1408,11 +1454,11 @@ footer div a {
     display: flex;
     flex-direction: column;
   }
-  #experience-article section div #core {
+  #experience-article section div .size1 {
     width: 60px;
     align-self: center;
   }
-  #experience-article section div #primus {
+  #experience-article section div .size2 {
     align-self: center;
     width: 80px;
   }
@@ -1425,6 +1471,7 @@ footer div a {
   #experience-article section div .exp-name {
     align-self: center;
     padding-top: 10px;
+    text-align: center;
   }
 
   /*********ARTICLE SOFTWARE DESKTOP**************/

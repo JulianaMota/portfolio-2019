@@ -298,6 +298,26 @@ function expClicked() {
   expBtn.style.backgroundColor = currentBtnColor;
   sofBtn.style.backgroundColor = normalBtnColor;
   hobBtn.style.backgroundColor = normalBtnColor;
+
+  // swiper exp
+  const expSwiper = new Swiper("#experience-article .swiper-container", {
+    // Optional parameters
+    direction: "horizontal",
+    loop: true,
+    updateOnWindowResize: true,
+    initialSlide: 0,
+
+    //pagination
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    }
+  });
 }
 //software
 function sofClicked() {
@@ -469,3 +489,41 @@ function navCliked(event) {
     document.querySelector("#worktag svg .b").classList.remove("strokeBlack");
   }
 }
+
+// swiper exp
+const expSwiper = new Swiper(".swiper-container", {
+  // Optional parameters
+  direction: "horizontal",
+  loop: true,
+  updateOnWindowResize: true,
+  initialSlide: 1,
+  autoplay: {
+    delay: 5000
+  },
+  //pagination
+  pagination: {
+    el: ".swiper-pagination"
+  },
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      // slidesPerView: 2,
+      // spaceBetween: 20
+    },
+    // when window width is >= 480px
+    480: {
+      // slidesPerView: 3,
+      // spaceBetween: 30
+    },
+    // when window width is >= 640px
+    640: {
+      // slidesPerView: 4,
+      // spaceBetween: 40
+    }
+  }
+});
