@@ -561,9 +561,25 @@ nav a:hover {
 /*********ARTICLE EDUCATION**************/
 #education-article {
   display: grid;
-  grid-template: auto auto auto/ 1fr;
-  grid-row-gap: 20px;
+  grid-template: auto 3fr/ 1fr;
   margin-bottom: 20px;
+  height: 650px;
+}
+#education-article .swiper-container {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  width: 100%;
+}
+#education-article .swiper-wrapper {
+  width: 100%;
+}
+#education-article .swiper-slide {
+  display: flex;
+  align-items: center;
+}
+#education-article section {
+  display: grid;
+  row-gap: 5%;
 }
 #education-article section .logo-school {
   height: 25px;
@@ -572,19 +588,21 @@ nav a:hover {
 #experience-article section p {
   font-size: var(--font-size-text1);
 }
+#education-article section .schoolSkills p {
+  padding-top: 10px;
+}
 #education-article section h3,
 #experience-article section h3 {
   font-size: var(--font-size-subtitle);
+  font-weight: bold;
 }
-#education-article section div .school,
-#education-article section .schoolSkills {
+#education-article section div .school {
   display: none;
 }
 /*********ARTICLE EXPERIENCE**************/
 #experience-article {
   display: grid;
-  grid-template: 1fr 3fr/ 1fr;
-  grid-row-gap: 20px;
+  grid-template: auto 3fr/ 1fr;
   margin-bottom: 20px;
 }
 #experience-article .swiper-container {
@@ -599,27 +617,42 @@ nav a:hover {
   display: flex;
   align-items: center;
 }
-#experience-article .swiper-button-prev::after,
-#experience-article .swiper-button-next::after {
+.swiper-button-prev::after,
+.swiper-button-next::after {
   display: none;
 }
-#experience-article .swiper-pagination-bullet-active {
+.swiper-pagination-bullet-active {
   background-color: var(--color-pink);
 }
-#experience-article .swiper-pagination-bullet {
+.swiper-pagination-bullet {
   height: 7px;
   width: 7px;
 }
 #experience-article section div .size1 {
-  width: 60px;
+  width: 80px;
+  display: block;
+  margin: auto;
 }
 #experience-article section div .size2 {
   width: 80px;
+  display: block;
+  margin: auto;
 }
-#experience-article section div .exp-name,
-#experience-article section .projects-exp {
-  /* display: none; */
+#experience-article .exp-grid {
+  display: grid;
+  row-gap: 10px;
+  justify-items: center;
 }
+#experience-article .exp-grid .exp-name {
+  text-align: center;
+  padding-top: 5px;
+  font-weight: 100;
+  font-size: var(--font-size-text1);
+}
+#experience-article .exp-grid h3 {
+  font-weight: bold;
+}
+
 /*********ARTICLE SOFTWARE**************/
 #software-article {
   display: grid;
@@ -1361,21 +1394,28 @@ footer div a {
   /*********ARTICLE EDUCATION DESKTOP**************/
   #education-article {
     display: grid;
-    grid-template: 100px 1fr 1fr/ 1fr;
+    grid-template: 100px 1fr/ 1fr;
     grid-row-gap: 20px;
     margin-bottom: 20px;
+    height: 500px;
   }
-  #education-article .kea {
-    grid-column: 1/2;
+  #education-article .swiper-container {
     grid-row: 2/3;
-  }
-  #education-article .iscte {
     grid-column: 1/2;
-    grid-row: 3/4;
+    width: 100%;
+  }
+  #education-article .swiper-wrapper {
+    width: 100%;
+  }
+  #education-article .swiper-slide {
+    display: flex;
+    align-items: center;
   }
   #education-article section {
     display: grid;
     grid-template: 30px 30% auto / 1fr 4fr;
+    width: 70%;
+    margin: auto;
     column-gap: 20px;
   }
   #education-article section .logo-school {
@@ -1426,16 +1466,16 @@ footer div a {
     display: flex;
     align-items: center;
   }
-  #experience-article .swiper-button-prev::after,
-  #experience-article .swiper-button-next::after {
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
     display: block;
     font-size: 35px;
     color: var(--color-pink);
   }
-  #experience-article .swiper-pagination-bullet-active {
+  .swiper-pagination-bullet-active {
     background-color: var(--color-pink);
   }
-  #experience-article .swiper-pagination-bullet {
+  .swiper-pagination-bullet {
     height: 7px;
     width: 7px;
   }
@@ -1445,22 +1485,26 @@ footer div a {
     margin: auto;
     display: grid;
     grid-template: 30px 30% auto / 1fr 4fr;
-    row-gap: 5%;
+    row-gap: 8%;
     column-gap: 4%;
+    justify-items: left;
   }
   #experience-article .exp-grid .exp-title {
     grid-column: 1/2;
     grid-row: 1/-1;
     display: flex;
     flex-direction: column;
+    justify-self: center;
   }
   #experience-article section div .size1 {
     width: 60px;
     align-self: center;
+    margin: 0 0 10px 0;
   }
   #experience-article section div .size2 {
     align-self: center;
     width: 80px;
+    margin: 0 0 10px 0;
   }
   #experience-article section div .exp-name,
   #experience-article section .projects-exp {

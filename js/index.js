@@ -34,10 +34,10 @@ const b = document.querySelectorAll(".b");
 const e = document.querySelectorAll(".e");
 const c = document.querySelectorAll(".c");
 
-//function window event listner when load page funtion init
+//function window event listener when load page function init
 window.addEventListener("DOMContentLoaded", init);
 
-//init funto with butto event listners
+//init function with button event listeners
 function init() {
   aboutBtn.style.backgroundColor = currentBtnColor;
   aboutBtn.addEventListener("click", aboutClicked);
@@ -69,7 +69,7 @@ function init() {
   get();
 }
 
-// funtion to get restdb projects
+// function to get restdb projects
 function get() {
   fetch(baseLink, {
     method: "get",
@@ -93,7 +93,7 @@ function get() {
     });
 }
 
-//funtion to sort the projects
+//function to sort the projects
 function projectssorted(a, b) {
   if (a.date > b.date) {
     return -1;
@@ -181,7 +181,7 @@ function animateScroll() {
   });
 }
 
-//Event Resize projects diferent when resize page
+//Event Resize projects different when resize page
 function resize() {
   const roles = document.querySelectorAll(".role");
   if (window.matchMedia("(max-width: 700px)").matches) {
@@ -206,12 +206,12 @@ function sizheader() {
 }
 
 function headerFixed() {
-  //if Statment if page scroll 100
+  //if Statement if page scroll 100
   if (
     document.body.scrollTop > 100 ||
     document.documentElement.scrollTop > 100
   ) {
-    //fixed bar apppears
+    //fixed bar appears
     fixedBack.style.top = "0%";
     fixedBack.style.opacity = 0.7;
 
@@ -229,7 +229,7 @@ function headerFixed() {
     c.forEach(c => c.classList.add("strokeWhite"));
     e.forEach(e => e.classList.add("strokeWhite"));
 
-    //animte classes to fix logo and nav
+    //animate classes to fix logo and nav
     document.querySelector("[data-animeH=fixedlogo]").classList.add("animateH");
     document.querySelector("[data-animeH=fixednav]").classList.add("animateN");
     nav.style.position = "fixed";
@@ -258,7 +258,7 @@ function headerFixed() {
   }
 }
 
-//funtions to display content in about section
+//functions to display content in about section
 
 //about
 function aboutClicked() {
@@ -285,8 +285,27 @@ function eduClicked() {
   expBtn.style.backgroundColor = normalBtnColor;
   sofBtn.style.backgroundColor = normalBtnColor;
   hobBtn.style.backgroundColor = normalBtnColor;
+
+  const eduSwiper = new Swiper(".s-edu", {
+    // Optional parameters
+    direction: "horizontal",
+    loop: false,
+    initialSlide: 0,
+    spaceBetween: 30,
+    allowTouchMove: true,
+    //pagination
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    }
+  });
 }
-//exparience
+//experience
 function expClicked() {
   eduArticle.classList.add("hide");
   aboutArticle.classList.add("hide");
@@ -300,13 +319,13 @@ function expClicked() {
   hobBtn.style.backgroundColor = normalBtnColor;
 
   // swiper exp
-  const expSwiper = new Swiper("#experience-article .swiper-container", {
+  const expSwiper = new Swiper(".s-exp", {
     // Optional parameters
     direction: "horizontal",
     loop: true,
-    updateOnWindowResize: true,
     initialSlide: 0,
-
+    spaceBetween: 30,
+    allowTouchMove: true,
     //pagination
     pagination: {
       el: ".swiper-pagination",
@@ -318,6 +337,7 @@ function expClicked() {
       prevEl: ".swiper-button-prev"
     }
   });
+  expSwiper.update();
 }
 //software
 function sofClicked() {
@@ -381,7 +401,7 @@ function filterProjects(event) {
     //display filtered projects
     arqF.forEach(displayP2018);
 
-    //if dont have child take year
+    //if don't have child take year
     projectSections.forEach(projectS => {
       if (projectS.childNodes.length === 0) {
         projectS.previousElementSibling.classList.add("hide");
@@ -489,41 +509,3 @@ function navCliked(event) {
     document.querySelector("#worktag svg .b").classList.remove("strokeBlack");
   }
 }
-
-// swiper exp
-const expSwiper = new Swiper(".swiper-container", {
-  // Optional parameters
-  direction: "horizontal",
-  loop: true,
-  updateOnWindowResize: true,
-  initialSlide: 1,
-  autoplay: {
-    delay: 5000
-  },
-  //pagination
-  pagination: {
-    el: ".swiper-pagination"
-  },
-  // Navigation arrows
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev"
-  },
-  breakpoints: {
-    // when window width is >= 320px
-    320: {
-      // slidesPerView: 2,
-      // spaceBetween: 20
-    },
-    // when window width is >= 480px
-    480: {
-      // slidesPerView: 3,
-      // spaceBetween: 30
-    },
-    // when window width is >= 640px
-    640: {
-      // slidesPerView: 4,
-      // spaceBetween: 40
-    }
-  }
-});
