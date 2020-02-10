@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Juliana Mota - Project</title>
+    <title>JMO - Project</title>
+    <link rel="stylesheet" href="node_modules/swiper/css/swiper.min.css" />
     <link
       rel="icon"
       type="image/png"
@@ -143,7 +144,7 @@
       <!-- <h2 class="margin-h2-proj">Projects</h2>
       <div class="lines"></div> -->
       <section id="each-project"></section>
-      <template>
+      <template class="main-temp">
         <section class="project-detail">
           <img
             class="project-photo"
@@ -167,8 +168,27 @@
               Role:
               <p></p>
             </div>
-            <section class="galery-container">
-              <img src="" alt="project-images" />
+            <section class="galery-container swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="" alt="project-images" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="" alt="project-images" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="" alt="project-images" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="" alt="project-images" />
+                </div>
+              </div>
+              <!-- pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!-- navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
             </section>
             <div class="link">
               <a href="" target="_blank">
@@ -179,6 +199,7 @@
         </section>
       </template>
     </section>
+    <script src="node_modules/swiper/js/swiper.min.js"></script>
     <script src="js/shared.js"></script>
     <script src="js/project.js"></script>
   </body>

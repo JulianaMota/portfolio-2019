@@ -7,7 +7,7 @@ const logo = document.querySelector("#moveheader");
 const aNav = document.querySelectorAll(".atag");
 const jmoLogo = document.querySelectorAll(".jmologo");
 const navATag = document.querySelectorAll("nav a");
-console.log(navATag);
+// console.log(navATag);
 
 //svg icons variables
 const a = document.querySelectorAll(".a");
@@ -20,7 +20,6 @@ window.addEventListener("DOMContentLoaded", init);
 
 function init() {
   getOneProject(projectID);
-  sizheader();
 }
 
 function getOneProject(projectID) {
@@ -37,8 +36,8 @@ function getOneProject(projectID) {
 }
 
 function displayOneProject(data) {
-  console.log(data);
-  const copy = document.querySelector("template").content.cloneNode(true);
+  // console.log(data);
+  const copy = document.querySelector(".main-temp").content.cloneNode(true);
 
   copy.querySelector(".project-photo").src =
     "https://restju-f026.restdb.io/media/" +
@@ -51,16 +50,21 @@ function displayOneProject(data) {
   copy.querySelector(".text-project p").textContent = data.description;
   copy.querySelector(".role-detail p").textContent = data.role;
 
-  console.log(data.gallery.length);
+  // console.log(data.gallery);
 
   if (data.gallery.length == 0) {
     copy.querySelector(".galery-container").innerHTML = data.report;
     // copy.querySelector(".galery-container img").classList.add("hide");
   } else {
-    copy.querySelector(".galery-container img").src =
-      "https://restju-f026.restdb.io/media/" +
-      data.gallery +
-      "?key=5c9667bddf5d634f46ecae24";
+    const imageList = copy.querySelectorAll(".galery-container img");
+    console.log(imageList);
+    imageList.forEach((element, i) => {
+      console.log(element, i);
+      element.src =
+        "https://restju-f026.restdb.io/media/" +
+        data.gallery[i] +
+        "?key=5c9667bddf5d634f46ecae24";
+    });
   }
 
   if (data.link === "") {
@@ -70,64 +74,24 @@ function displayOneProject(data) {
   }
 
   document.querySelector("#each-project").appendChild(copy);
+
+  const projSwiper = new Swiper(".swiper-container", {
+    // Optional parameters
+    direction: "horizontal",
+    loop: true,
+    initialSlide: 0,
+    spaceBetween: 30,
+    allowTouchMove: true,
+    //pagination
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    }
+  });
 }
 
-// //Event fixed bar appear in desktop
-// window.addEventListener("resize", sizheader);
-
-// function sizheader() {
-//   if (window.matchMedia("(max-width: 700px)").matches) {
-//   } else {
-//     window.addEventListener("scroll", headerFixed);
-//   }
-// }
-
-// function headerFixed() {
-//   //if Statment if page scroll 100
-//   if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-//     //fixed bar apppears
-//     fixedBack.style.top = "0%";
-//     fixedBack.style.opacity = 0.7;
-
-//     //logo turns white
-//     jmoLogo.forEach(l => l.classList.add("colorWhite"));
-
-//     //nav span turns white
-//     aNav.forEach(aName => aName.classList.add("tagColorWhite"));
-
-//     //svg logo turns white
-//     e.forEach(e => e.classList.add("colorWhite"));
-//     a.forEach(a => a.classList.add("colorWhite"));
-//     b.forEach(b => b.classList.add("colorWhite"));
-//     b.forEach(b => b.classList.add("strokeWhite"));
-//     c.forEach(c => c.classList.add("strokeWhite"));
-//     e.forEach(e => e.classList.add("strokeWhite"));
-
-//     //animte classes to fix logo and nav
-//     document.querySelector("[data-animeH=fixedlogo]").classList.add("animateH");
-//     document.querySelector("[data-animeH=fixednav]").classList.add("animateN");
-//     nav.style.position = "fixed";
-//   } else {
-//     //fixed bar goes back to top
-//     fixedBack.style.top = "-100%";
-
-//     //remove animate classes to fix the logo and nav
-//     document
-//       .querySelector("[data-animeH=fixedlogo]")
-//       .classList.remove("animateH");
-//     document
-//       .querySelector("[data-animeH=fixednav]")
-//       .classList.remove("animateN");
-//     nav.style.position = "relative";
-
-//     //take color white from the nav icons, names and jmo logo
-//     e.forEach(e => e.classList.remove("colorWhite"));
-//     a.forEach(a => a.classList.remove("colorWhite"));
-//     b.forEach(b => b.classList.remove("colorWhite"));
-//     b.forEach(b => b.classList.remove("strokeWhite"));
-//     c.forEach(c => c.classList.remove("strokeWhite"));
-//     e.forEach(e => e.classList.remove("strokeWhite"));
-//     jmoLogo.forEach(l => l.classList.remove("colorWhite"));
-//     aNav.forEach(aName => aName.classList.remove("tagColorWhite"));
-//   }
-// }

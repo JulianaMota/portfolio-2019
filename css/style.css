@@ -1819,6 +1819,20 @@ footer div a {
     width: 100%;
     background-color: transparent;
   }
+  #project .swiper-container {
+    grid-column: 2/3;
+    grid-row: 3/5;
+    width: 100%;
+  }
+  #project .swiper-wrapper {
+    width: 100%;
+  }
+  #project .swiper-slide {
+    display: flex;
+    width: 100%;
+    justify-self: center;
+    align-items: center;
+  }
   #project .project-detail #project-info .galery-container img {
     box-sizing: border-box;
     width: 100%;
@@ -1826,7 +1840,6 @@ footer div a {
   #project .project-detail #project-info .link {
     grid-column: 2/3;
     grid-row: 5/6;
-    /* transform: rotate(-90deg); */
     align-self: center;
     cursor: pointer;
     z-index: 3;
