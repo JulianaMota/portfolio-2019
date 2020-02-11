@@ -51,19 +51,25 @@ function displayOneProject(data) {
   copy.querySelector(".role-detail p").textContent = data.role;
 
   // console.log(data.gallery);
-
+  const imageList = copy.querySelectorAll(".galery-container img");
   if (data.gallery.length == 0) {
     copy.querySelector(".galery-container").innerHTML = data.report;
     // copy.querySelector(".galery-container img").classList.add("hide");
   } else {
-    const imageList = copy.querySelectorAll(".galery-container img");
-    console.log(imageList);
+    // console.log(imageList);
     imageList.forEach((element, i) => {
-      console.log(element, i);
+      // console.log(element, i);
       element.src =
         "https://restju-f026.restdb.io/media/" +
         data.gallery[i] +
         "?key=5c9667bddf5d634f46ecae24";
+      console.log(element.parentElement);
+      if (
+        element.src ===
+        "https://restju-f026.restdb.io/media/undefined?key=5c9667bddf5d634f46ecae24"
+      ) {
+        element.parentElement.style.display = "none";
+      }
     });
   }
 
@@ -94,4 +100,3 @@ function displayOneProject(data) {
     }
   });
 }
-
