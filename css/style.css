@@ -400,6 +400,7 @@ nav a:hover {
 	background-color: var(--color-grey);
 	padding: 0 20px 0 70px;
 }
+
 .project-info h2 {
 	text-align: left;
 	margin-bottom: 7px;
@@ -882,38 +883,57 @@ footer div a {
 
 #project .project-detail {
 	display: grid;
-	grid-template: auto 1fr/50px auto;
+	grid-template: auto 1fr/30px auto;
 	padding-left: 20px;
+	z-index: 1;
 }
 #project .project-detail .project-photo {
 	grid-column: 1/2;
 	grid-row: 1/2;
-	width: 100px;
+	width: 60px;
 	z-index: 2;
 }
 
 /************Project DETAIL DESKTOP*********/
-#project .project-detail #project-info {
-	grid-column: 2/3;
-	grid-row: 1/2;
-	background-color: var(--color-grey);
-	padding: 3vh 7vw 30vh 17vw;
+#project .project-detail #project-back #project-info {
+	padding: 3vh 7vw 30vh 12vw;
 	z-index: 1;
 	display: grid;
 	grid-template: auto auto auto auto auto auto auto / auto;
-	height: 100%;
-	border-left: solid 1px var(--color-darkgrey);
+	height: fit-content;
 	grid-column-gap: 0px;
 	grid-row-gap: 20px;
+	z-index: 3;
 }
-#project .project-detail #project-info h2 {
+#project .project-detail #project-back{
+	grid-column: 2/3;
+	grid-row: 1/2;
+	border-left: solid 1px var(--color-darkgrey);
+	background-color: var(--color-grey);
+	z-index: 1; 	
+}
+#project .project-detail #project-info .title-div {
 	grid-column: 1/2;
 	grid-row: 1/2;
-	text-align: left;
-	font-size: var(--font-size-subtitle25);
 	align-self: center;
 	color: var(--color-wine);
+	display: grid;
+	row-gap: 20px;
 }
+#project .project-detail #project-info .title-div h2{
+	text-align: left;
+	font-size: var(--font-size-subtitle25);
+	color: var(--color-wine);
+}
+
+#project .project-detail #project-info .title-div a{
+	text-decoration: none;
+	color: var(--color-pink);
+	font-weight: 600;
+	font-size: var(--font-size-text1);
+	text-align: right;
+}
+
 #project .project-detail #project-info h4 {
 	grid-column: 1/2;
 	grid-row: 2/3;
@@ -1743,8 +1763,9 @@ footer div a {
 
 	#project .project-detail {
 		display: grid;
-		grid-template: auto 1fr/ 73px 1fr;
+		grid-template: minmax(100vh, 100%)/ 73px 1fr;
 		padding-left: 60px;
+		z-index: 1;
 	}
 	#project .project-detail .project-photo {
 		grid-column: 1/2;
@@ -1754,25 +1775,32 @@ footer div a {
 	}
 
 	/************Project DETAIL DESKTOP*********/
-	#project .project-detail #project-info {
+	#project .project-detail #project-back #project-info {
+		padding: 5vh 90px 50px 100px;
+		z-index: 10;
+		display: grid;
+		grid-template: auto auto auto minmax(300px, auto) auto / 1fr 1fr;
+		column-gap: 0px;
+		row-gap: 20px;
+		height: fit-content;
+
+	}
+	#project .project-detail #project-back{
 		grid-column: 2/3;
 		grid-row: 1/2;
-		background-color: var(--color-grey);
-		padding: 5vh 70px 40px 100px;
-		z-index: 1;
-		display: grid;
-		grid-template: auto auto auto repeat(2, auto) / 1fr 1fr;
 		border-left: solid 1px var(--color-darkgrey);
-		grid-column-gap: 30px;
-		grid-row-gap: 20px;
+		background-color: var(--color-grey);
+		z-index: 1; 	
 	}
-	#project .project-detail #project-info h2 {
+	#project .project-detail #project-info .title-div {
 		grid-column: 1/4;
 		grid-row: 1/2;
+		align-self: center;		
+	}
+	#project .project-detail #project-info .title-div h2 {
+		color: var(--color-wine);
 		text-align: right;
 		font-size: var(--font-size-title30);
-		align-self: center;
-		color: var(--color-wine);
 	}
 	#project .project-detail #project-info h4 {
 		grid-column: 1/3;
@@ -1791,12 +1819,14 @@ footer div a {
 		font-family: var(--text-font);
 		font-size: var(--font-size-text14);
 		line-height: 1.7;
+		padding-right: 40px;
 	}
 	#project .project-detail #project-info .role-detail {
 		grid-column: 1/2;
 		grid-row: 5/6;
 		font-family: var(--text-font);
 		font-size: var(--font-size-text1);
+		padding-right: 40px;
 	}
 	#project .project-detail #project-info .role-detail p {
 		font-size: var(--font-size-text14);
