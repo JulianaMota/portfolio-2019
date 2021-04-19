@@ -59,26 +59,14 @@ function init() {
 
 // function to get restdb projects
 function get() {
-	fetch(baseLink, {
-		method: 'get',
-		headers: {
-			'Content-Type': 'application/json; charset=utf-8',
-			'x-apikey': '5c9667bddf5d634f46ecae24',
-			'cache-control': 'no-cache'
-		}
-	})
-		.then((e) => e.json())
-		.then((e) => {
-			projectsarr = e;
-
-			//sort the array of projects by date
-			sortedarr = projectsarr.sort(projectssorted);
-
-			// display sorte array
-			sortedarr.forEach(displayP2018);
-			//call resize funtion
-			resize();
-		});
+	db
+		.collection('projects')
+		.orderBy('date', 'desc')
+		.get()
+		.then((snapshot) => {
+			snapshot.docs.forEach(displayP2018);
+		})
+		.catch((err) => console.log(err));
 }
 
 //function to sort the projects
@@ -92,47 +80,51 @@ function projectssorted(a, b) {
 
 // funtion to display each project using template
 function displayP2018(project) {
+	const pro = project.data();
+	const id = project.id;
 	const copy = document.querySelector('template').content.cloneNode(true);
 
 	//images
-	copy.querySelector('.project-box').dataset.category = project.category;
-	copy.querySelector('img').src =
-		'https://restju-f026.restdb.io/media/' + project.image + '?key=5c9667bddf5d634f46ecae24';
+	copy.querySelector('.project-box').dataset.category = pro.category;
+
+	copy.querySelector('img').src = pro.imgURL;
 
 	//project link
-	copy.querySelector('.projectlink').href = 'project.html?projectid=' + project._id;
+	copy.querySelector('.projectlink').href = 'project.html?projectid=' + id;
 	//project link
-	copy.querySelector('.projectlink2').href = 'project.html?projectid=' + project._id;
+	copy.querySelector('.projectlink2').href = 'project.html?projectid=' + id;
 	//project title
-	copy.querySelector('h2').textContent = project.title;
+	copy.querySelector('h2').textContent = pro.title;
 	//project place
-	copy.querySelector('.place').textContent = project.place;
+	copy.querySelector('.place').textContent = pro.place;
 	//project role
-	copy.querySelector('.role p').textContent = project.role;
+	copy.querySelector('.role p').textContent = pro.role;
 
 	// append child in each section
-	if (project.year == '2019') {
+	if (pro.year == '2019') {
 		document.querySelector('#p2019').appendChild(copy);
-	} else if (project.year == '2018') {
+	} else if (pro.year == '2018') {
 		document.querySelector('#p2018').appendChild(copy);
-	} else if (project.year == '2015') {
+	} else if (pro.year == '2015') {
 		document.querySelector('#p2015').appendChild(copy);
-	} else if (project.year == '2014') {
+	} else if (pro.year == '2014') {
 		document.querySelector('#p2014').appendChild(copy);
-	} else if (project.year == '2013') {
+	} else if (pro.year == '2013') {
 		document.querySelector('#p2013').appendChild(copy);
-	} else if (project.year == '2012') {
+	} else if (pro.year == '2012') {
 		document.querySelector('#p2012').appendChild(copy);
-	} else if (project.year == '2011') {
+	} else if (pro.year == '2011') {
 		document.querySelector('#p2011').appendChild(copy);
-	} else if (project.year == '2010') {
+	} else if (pro.year == '2010') {
 		document.querySelector('#p2010').appendChild(copy);
-	} else if (project.year == '2009') {
+	} else if (pro.year == '2009') {
 		document.querySelector('#p2009').appendChild(copy);
-	} else if (project.year == '2008') {
+	} else if (pro.year == '2008') {
 		document.querySelector('#p2008').appendChild(copy);
-	} else if (project.year == '2020') {
+	} else if (pro.year == '2020') {
 		document.querySelector('#p2020').appendChild(copy);
+	} else if (pro.year == '2021') {
+		document.querySelector('#p2021').appendChild(copy);
 	}
 }
 

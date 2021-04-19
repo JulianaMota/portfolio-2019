@@ -23,24 +23,20 @@ function init() {
 }
 
 function getOneProject(projectID) {
-	fetch(baseLink + '/' + projectID, {
-		method: 'get',
-		headers: {
-			'Content-Type': 'application/json; charset=utf-8',
-			'x-apikey': '5c9667bddf5d634f46ecae24',
-			'cache-control': 'no-cache'
-		}
-	})
-		.then((res) => res.json())
-		.then(displayOneProject);
+	db
+		.collection('projects')
+		.doc(projectID)
+		.get()
+		.then((snapshot) => {
+			displayOneProject(snapshot.data());
+		})
+		.catch((err) => console.log(err));
 }
 
 function displayOneProject(data) {
-	// console.log(data);
 	const copy = document.querySelector('.main-temp').content.cloneNode(true);
 
-	copy.querySelector('.project-photo').src =
-		'https://restju-f026.restdb.io/media/' + data.image + '?key=5c9667bddf5d634f46ecae24';
+	copy.querySelector('.project-photo').src = data.imgURL;
 
 	copy.querySelector('h2').textContent = data.title;
 	copy.querySelector('h4').textContent = data.year;
@@ -48,20 +44,17 @@ function displayOneProject(data) {
 	copy.querySelector('.text-project p').textContent = data.description;
 	copy.querySelector('.role-detail p').textContent = data.role;
 
-	// console.log(data.gallery);
-	const imageList = copy.querySelectorAll('.galery-container img');
-	if (data.gallery.length == 0) {
-		copy.querySelector('.galery-container').innerHTML = data.report;
-		// copy.querySelector(".galery-container img").classList.add("hide");
+	const imageList = copy.querySelector('.galery-container .swiper-wrapper');
+	if (data.gallery === null) {
+		copy.querySelector('.galery-container').innerHTML = data.video;
 	} else {
-		// console.log(imageList);
-		imageList.forEach((element, i) => {
-			// console.log(element, i);
-			element.src = 'https://restju-f026.restdb.io/media/' + data.gallery[i] + '?key=5c9667bddf5d634f46ecae24';
-			console.log(element.parentElement);
-			if (element.src === 'https://restju-f026.restdb.io/media/undefined?key=5c9667bddf5d634f46ecae24') {
-				element.parentElement.style.display = 'none';
-			}
+		data.gallery.forEach((image) => {
+			const html = `
+			<div class="swiper-slide">
+				<img src="${image}" alt="project-images" />
+			</div>;`;
+
+			imageList.innerHTML += html;
 		});
 	}
 
