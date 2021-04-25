@@ -3,6 +3,7 @@
 //arrays
 let projectsarr;
 let sortedarr;
+let showAll = false;
 
 // btn about
 const aboutBtn = document.querySelector('[data-action=about]');
@@ -50,8 +51,8 @@ function init() {
 
 	document.querySelector('[data-action=arq]').addEventListener('click', filterProjects);
 	document.querySelector('[data-action=ani]').addEventListener('click', filterProjects);
-	document.querySelector('[data-action=web]').addEventListener('click', filterProjects);
-	document.querySelector('[data-action=app]').addEventListener('click', filterProjects);
+	document.querySelector('[data-action=front]').addEventListener('click', filterProjects);
+	document.querySelector('[data-action=back]').addEventListener('click', filterProjects);
 	document.querySelector('[data-action=vid]').addEventListener('click', filterProjects);
 	document.querySelector('[data-action=all]').addEventListener('click', filterProjects);
 	get();
@@ -64,7 +65,8 @@ function get() {
 		.orderBy('date', 'desc')
 		.get()
 		.then((snapshot) => {
-			snapshot.docs.forEach(displayP2018);
+			sortedarr = snapshot.docs;
+			sortedarr.forEach(displayP2018);
 		})
 		.catch((err) => console.log(err));
 }
@@ -77,6 +79,26 @@ function projectssorted(a, b) {
 		return 1;
 	}
 }
+
+const showBtn = document.querySelector('[data-action=showAll]');
+showBtn.addEventListener('click', (e) => {
+	e.preventDefault();
+	showBtn.classList.add('hide');
+	hideBtn.classList.remove('hide');
+	showAll = true;
+	cleanProjects();
+	get();
+});
+
+const hideBtn = document.querySelector('[data-action=hidePart]');
+hideBtn.addEventListener('click', (e) => {
+	e.preventDefault();
+	hideBtn.classList.add('hide');
+	showBtn.classList.remove('hide');
+	showAll = false;
+	cleanProjects();
+	get();
+});
 
 // funtion to display each project using template
 function displayP2018(project) {
@@ -103,29 +125,30 @@ function displayP2018(project) {
 	// append child in each section
 	if (pro.year == '2019') {
 		document.querySelector('#p2019').appendChild(copy);
-	} else if (pro.year == '2018') {
+	} else if (pro.year == '2018' && showAll === true) {
 		document.querySelector('#p2018').appendChild(copy);
-	} else if (pro.year == '2015') {
+	} else if (pro.year == '2015' && showAll === true) {
 		document.querySelector('#p2015').appendChild(copy);
-	} else if (pro.year == '2014') {
+	} else if (pro.year == '2014' && showAll === true) {
 		document.querySelector('#p2014').appendChild(copy);
-	} else if (pro.year == '2013') {
+	} else if (pro.year == '2013' && showAll === true) {
 		document.querySelector('#p2013').appendChild(copy);
-	} else if (pro.year == '2012') {
+	} else if (pro.year == '2012' && showAll === true) {
 		document.querySelector('#p2012').appendChild(copy);
-	} else if (pro.year == '2011') {
+	} else if (pro.year == '2011' && showAll === true) {
 		document.querySelector('#p2011').appendChild(copy);
-	} else if (pro.year == '2010') {
+	} else if (pro.year == '2010' && showAll === true) {
 		document.querySelector('#p2010').appendChild(copy);
-	} else if (pro.year == '2009') {
+	} else if (pro.year == '2009' && showAll === true) {
 		document.querySelector('#p2009').appendChild(copy);
-	} else if (pro.year == '2008') {
+	} else if (pro.year == '2008' && showAll === true) {
 		document.querySelector('#p2008').appendChild(copy);
 	} else if (pro.year == '2020') {
 		document.querySelector('#p2020').appendChild(copy);
 	} else if (pro.year == '2021') {
 		document.querySelector('#p2021').appendChild(copy);
 	}
+	showHideDate();
 }
 
 window.addEventListener('scroll', () => {
@@ -329,9 +352,38 @@ function filterProjects(event) {
 	let currentFilter = event.target.firstChild.data;
 
 	//filter each projeect based on category
-	let arqF = sortedarr.filter((project) => project.category === currentFilter);
+	let arqF = sortedarr.filter((project) => project.data().category === currentFilter);
+	cleanProjects();
+	//variables of project section an year
 
+	let yearlist = document.querySelectorAll('.year-dot');
+
+	if (currentFilter === 'All') {
+		//display all projects
+		sortedarr.forEach(displayP2018);
+		yearlist.forEach((year) => year.classList.remove('hide'));
+	} else {
+		//display filtered projects
+		arqF.forEach(displayP2018);
+	}
+	showHideDate();
+}
+
+const showHideDate = () => {
+	let projectSections = document.querySelectorAll('.project-grid');
+	//if don't have child take year
+	projectSections.forEach((projectS) => {
+		if (projectS.childNodes.length === 0) {
+			projectS.previousElementSibling.classList.add('hide');
+		} else {
+			projectS.previousElementSibling.classList.remove('hide');
+		}
+	});
+};
+
+const cleanProjects = () => {
 	//empty project sections to only apppear filter projects
+	document.querySelector('#p2021').innerHTML = '';
 	document.querySelector('#p2020').innerHTML = '';
 	document.querySelector('#p2019').innerHTML = '';
 	document.querySelector('#p2018').innerHTML = '';
@@ -343,29 +395,7 @@ function filterProjects(event) {
 	document.querySelector('#p2010').innerHTML = '';
 	document.querySelector('#p2009').innerHTML = '';
 	document.querySelector('#p2008').innerHTML = '';
-
-	//variables of project section an year
-	let projectSections = document.querySelectorAll('.project-grid');
-	let yearlist = document.querySelectorAll('.year-dot');
-
-	if (currentFilter === 'All') {
-		//display all projects
-		sortedarr.forEach(displayP2018);
-		yearlist.forEach((year) => year.classList.remove('hide'));
-	} else {
-		//display filtered projects
-		arqF.forEach(displayP2018);
-
-		//if don't have child take year
-		projectSections.forEach((projectS) => {
-			if (projectS.childNodes.length === 0) {
-				projectS.previousElementSibling.classList.add('hide');
-			} else {
-				projectS.previousElementSibling.classList.remove('hide');
-			}
-		});
-	}
-}
+};
 
 //funtion to hover nav
 function navCliked(event) {

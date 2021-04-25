@@ -173,6 +173,24 @@ h2 {
 	margin-bottom: -60px;
 	margin-top: 20px;
 }
+/* button general manly for show more button */
+.btn {
+	background-color: transparent;
+	font-family: var(--text-fonts);
+	padding: 10px 20px;
+	font-size: var(--font-size-subtitle18);
+	margin: 10% auto 40px;
+	display: flex;
+	border-radius: 20px;
+	font-weight: 600;
+	color: var(--color-pink);
+	border: 1px solid var(--color-pink);
+	cursor: pointer;
+}
+.btn:hover {
+	color: var(--color-wine);
+	border-color: var(--color-wine);
+}
 
 .lines {
 	z-index: 2;
@@ -563,17 +581,21 @@ nav a:hover {
 	grid-row: 2/3;
 	grid-column: 1/2;
 	width: 100%;
+	height: 75%;
 }
 #education-article .swiper-wrapper {
 	width: 100%;
+	height: fit-content;
 }
 #education-article .swiper-slide {
 	display: flex;
 	align-items: center;
+	height: fit-content;
 }
 #education-article section {
 	display: grid;
 	row-gap: 5%;
+	margin: 30px auto;
 }
 #education-article section .logo-school {
 	height: 25px;
@@ -603,13 +625,19 @@ nav a:hover {
 	grid-row: 2/3;
 	grid-column: 1/2;
 	width: 100%;
+	height: 80%;
 }
 #experience-article .swiper-wrapper {
 	width: 100%;
+	height: fit-content;
 }
 #experience-article .swiper-slide {
 	display: flex;
 	align-items: center;
+	height: fit-content;
+}
+#experience-article .swiper-slide section {
+	margin: 40px auto;
 }
 .swiper-button-prev::after,
 .swiper-button-next::after {
@@ -905,12 +933,12 @@ footer div a {
 	grid-row-gap: 20px;
 	z-index: 3;
 }
-#project .project-detail #project-back{
+#project .project-detail #project-back {
 	grid-column: 2/3;
 	grid-row: 1/2;
 	border-left: solid 1px var(--color-darkgrey);
 	background-color: var(--color-grey);
-	z-index: 1; 	
+	z-index: 1;
 }
 #project .project-detail #project-info .title-div {
 	grid-column: 1/2;
@@ -920,13 +948,13 @@ footer div a {
 	display: grid;
 	row-gap: 20px;
 }
-#project .project-detail #project-info .title-div h2{
+#project .project-detail #project-info .title-div h2 {
 	text-align: left;
 	font-size: var(--font-size-subtitle25);
 	color: var(--color-wine);
 }
 
-#project .project-detail #project-info .title-div a{
+#project .project-detail #project-info .title-div a {
 	text-decoration: none;
 	color: var(--color-pink);
 	font-weight: 600;
@@ -1037,8 +1065,8 @@ footer div a {
 	/*******GRID BODY DESKTOP***************/
 	.grid-container {
 		display: grid;
-		grid-template-areas: "header nav aside" "home home home" "work work work" "about about about"
-			"contacts contacts contacts" "footer footer footer";
+		grid-template-areas: "header nav aside" "home home home" "work work work"
+			"about about about" "contacts contacts contacts" "footer footer footer";
 		grid-template-columns: auto 1fr 10%;
 	}
 
@@ -1159,6 +1187,9 @@ footer div a {
 	}
 
 	/*********PROJECTS FILTERS DESKTOP*************/
+	#work {
+		padding-top: 100px;
+	}
 	#work #filters {
 		display: grid;
 		grid-template: 1fr/ 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -1304,6 +1335,9 @@ footer div a {
 	}
 
 	/*********ABOUT DESKTOP**************/
+	#about {
+		padding-top: 100px;
+	}
 	#about .about-menu {
 		display: grid;
 		grid-template: auto 1fr/ 73px 1fr;
@@ -1783,19 +1817,18 @@ footer div a {
 		column-gap: 0px;
 		row-gap: 20px;
 		height: fit-content;
-
 	}
-	#project .project-detail #project-back{
+	#project .project-detail #project-back {
 		grid-column: 2/3;
 		grid-row: 1/2;
 		border-left: solid 1px var(--color-darkgrey);
 		background-color: var(--color-grey);
-		z-index: 1; 	
+		z-index: 1;
 	}
 	#project .project-detail #project-info .title-div {
 		grid-column: 1/4;
 		grid-row: 1/2;
-		align-self: center;		
+		align-self: center;
 	}
 	#project .project-detail #project-info .title-div h2 {
 		color: var(--color-wine);
@@ -1874,5 +1907,26 @@ footer div a {
 		padding-left: 10px;
 		cursor: pointer;
 		font-size: var(--font-size-subtitle);
+	}
+}
+/*********DESKTOP STYLE**************/
+@media only screen and (min-width: 1600px) {
+	.lines {
+		min-height: 300px;
+	}
+	.lineContacts {
+		min-height: 400px;
+	}
+	#work {
+		padding-top: 150px;
+	}
+	#about {
+		padding-top: 150px;
+	}
+	#about .about-menu .detail-about {
+		height: 600px;
+	}
+	#hobbies-article section div img {
+		width: 50%;
 	}
 }
