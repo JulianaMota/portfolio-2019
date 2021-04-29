@@ -699,6 +699,7 @@ nav a:hover {
 	width: 40px;
 	height: 40px;
 	justify-self: center;
+	object-fit: contain;
 }
 #software-article section div p {
 	font-size: var(--font-size-text12);
@@ -1376,7 +1377,7 @@ footer div a {
 	}
 	/************ABOUT DETAIL DESKTOP*********/
 	#about .about-menu .detail-about {
-		min-height: 500px;
+		min-height: 600px;
 		padding: 0 90px 0 100px;
 	}
 	#about .about-menu .detail-about article {
@@ -1586,6 +1587,7 @@ footer div a {
 	#software-article section div img {
 		width: 60px;
 		height: 60px;
+		object-fit: contain;
 	}
 	#software-article section div p {
 		font-size: var(--font-size-subtitle18);
