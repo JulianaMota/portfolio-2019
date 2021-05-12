@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "ssr-window": "^1.0.1",
-    "swiper": "^5.3.0"
+    "swiper": "^6.5.1"
   },
   "devDependencies": {},
   "scripts": {
